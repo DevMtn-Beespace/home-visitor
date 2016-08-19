@@ -1,0 +1,42 @@
+<nav class="navbar navbar-light bg-faded">
+    <div class="container-fluid">
+        <div class="navbar-header pull-xs-left">
+            <a class="navbar-brand" ui-sref="index"><i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp;Home Visitor</a>
+        </div>
+
+        <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navCollapse">
+            &#9776;
+        </button>
+        <div class="collapse navbar-toggleable-xs" id="login-nav-collapse">
+            <ul class="nav navbar-nav pull-xs-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Me <span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">My Info</a>
+                        <a class="dropdown-item" href="#">My Availability</a>
+                        <a class="dropdown-item" href="#">My Teams</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" ui-sref="myVisits">My Visits</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="sr-only">(current)</span></a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Users</a>
+                        <a class="dropdown-item" href="#">Visits</a>
+                        <a class="dropdown-item" href="#">Teams</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Visitees</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Messages</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" <span class="login-link">Logout</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
