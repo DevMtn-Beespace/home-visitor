@@ -1,0 +1,38 @@
+INSERT into USERS
+(
+  username,
+  password,
+  first_name,
+  last_name,
+  address,
+  city,
+  state,
+  zip,
+  phone,
+  email,
+  region,
+  advocate,
+  member,
+  admin,
+  google_id,
+  facebook_id
+)
+VALUES
+(
+  $1,
+  $2,
+  $3,
+  $4,
+  $5,
+  $6,
+  $7,
+  $8,
+  $9,
+  $10,
+  $11,
+  $12,
+  $13,
+  $14,
+  $15,
+  $16
+);
