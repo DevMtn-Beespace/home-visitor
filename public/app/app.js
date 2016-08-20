@@ -10,10 +10,30 @@ angular.module('app', ['ui.router', 'satellizer'])
       templateUrl: './app/component/login/view/loginTemplate.html',
       controller: 'loginCtrl'
     })
+    .state('register', {
+      url: '/register',
+      templateUrl: './app/component/register/view/registerTemplate.html',
+      controller: 'registerCtrl'
+    })
     .state('myVisits', {
       url: '/my-visits',
       templateUrl: './app/component/myVisits/view/my-visitsTemplate.html',
       controller: 'myVisitCtrl'
+    })
+    .state('myTeams',  {
+      url: '/my-teams',
+      templateUrl: '/app/component/myTeams/view/my-teamsTemplate.html',
+      controller: 'myTeamCtrl'
+    })
+    .state('myAvailability', {
+      url: '/my-availability',
+      templateUrl: '/app/component/myAvailability/view/my-availabilityTemplate.html',
+      controller: 'myAvailabilityCtrl'
+    })
+    .state('visitees', {
+      url: '/visitees',
+      templateUrl: '/app/component/visitees/view/visiteesTemplate.html',
+      controller: 'visiteeCtrl'
     })
 
   $urlRouterProvider.otherwise('/'); // if view is not in stateProvider, go here.

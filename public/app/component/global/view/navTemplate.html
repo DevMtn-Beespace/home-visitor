@@ -4,23 +4,23 @@
             <a class="navbar-brand" ui-sref="index"><i class="fa fa-home fa-2x" aria-hidden="true"></i>&nbsp;Home Visitor</a>
         </div>
 
-        <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#navCollapse">
+        <button class="navbar-toggler hidden-sm-up pull-xs-right" type="button" data-toggle="collapse" data-target="#login-nav-collapse">
             &#9776;
         </button>
         <div class="collapse navbar-toggleable-xs" id="login-nav-collapse">
             <ul class="nav navbar-nav pull-xs-right">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Me <span class="sr-only">(current)</span></a>
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" ng-hide="navStyle = 'landing'" href="#" role="button" aria-haspopup="true" aria-expanded="false">Me <span class="sr-only">(current)</span></a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">My Info</a>
-                        <a class="dropdown-item" href="#">My Availability</a>
-                        <a class="dropdown-item" href="#">My Teams</a>
+                        <a class="dropdown-item" ui-sref="my-visits">My Visits</a>
+                        <a class="dropdown-item" ui-sref="my-availability">My Availability</a>
+                        <a class="dropdown-item" ui-sref="my-teams">My Teams</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" ui-sref="myVisits">My Visits</a>
+                        <a class="dropdown-item" href="#">My Info</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="sr-only">(current)</span></a>
+                    <a class="nav-link dropdown-toggle active" data-toggle="dropdown" ng-hide="navStyle = 'landing'" ng-show="navStyle = 'admin'" href="#" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="sr-only">(current)</span></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Users</a>
                         <a class="dropdown-item" href="#">Visits</a>
@@ -28,13 +28,19 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Visitees</a>
+                    <a class="nav-link" ng-hide="navStyle = 'landing'" ui-sref="visitees">Visitees</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" ng-show="navStyle = 'register'" href="#">Messages</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" ng-show="navStyle = 'landing'" ui-sref="register">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Messages</a>
+                    <a class="nav-link" ng-hide="navStyle = 'landing'" href="#" <span class="login-link">Logout</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" <span class="login-link">Logout</span></a>
+                    <a class="nav-link" ng-show="navStyle = 'landing'" href="#" <span class="login-link">Login</span></a>
                 </li>
             </ul>
         </div>

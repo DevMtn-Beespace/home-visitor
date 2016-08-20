@@ -1,0 +1,40 @@
+<nav-directive></nav-directive>
+<h1>Hello from my availability</h1>
+<p>if visitor, show visitor availability table. Start availability, End availability</p>
+<p>if also a visitee, show visitee availability. Start / End</p>
+<p>default always available. user can mark unavailable range, or available range BUT NOT both</p>
+
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldset class="form-group">
+                    <legend>Availability</legend>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose Availabilty:
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Choose Unavailability:
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <fieldset class="form-group">
+                    <label for="datetime-local-input" class="col-xs-2 col-form-label">Date and time</label>
+                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="datetime-local-input">
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
