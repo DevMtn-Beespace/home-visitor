@@ -20,9 +20,9 @@ angular.module('app', ['ui.router', 'satellizer'])
       templateUrl: './app/component/myVisits/view/my-visitsTemplate.html',
       controller: 'myVisitCtrl'
     })
-    .state('myTeams',  {
+    .state('myTeams', {
       url: '/my-teams',
-      templateUrl: '/app/component/myTeams/view/my-teamsTemplate.html',
+      templateUrl: './app/component/myTeams/view/my-teamsTemplate.html',
       controller: 'myTeamCtrl'
     })
     .state('myAvailability', {
@@ -34,6 +34,21 @@ angular.module('app', ['ui.router', 'satellizer'])
       url: '/visitees',
       templateUrl: '/app/component/visitees/view/visiteesTemplate.html',
       controller: 'visiteeCtrl'
+    })
+    .state('adminTeams', {
+      url: '/admin-teams',
+      templateUrl: '/app/component/adminTeams/view/admin-teamsTemplate.html',
+      controller: 'adminTeamCtrl'
+    })
+    .state('adminUsers', {
+      url: '/admin-users',
+      templateUrl: '/app/component/adminUsers/view/admin-usersTemplate.html',
+      controller: 'adminUserCtrl'
+    })
+    .state('adminVisits', {
+      url: '/admin-visits',
+      templateUrl: '/app/component/adminVisits/view/admin-visitsTemplate.html',
+      controller: 'adminVisitCtrl'
     })
 
   $urlRouterProvider.otherwise('/'); // if view is not in stateProvider, go here.

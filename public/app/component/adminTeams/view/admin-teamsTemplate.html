@@ -1,0 +1,47 @@
+<nav-directive></nav-directive>
+<h1>Admin Teams</h1>
+
+<p>list all team(s)</p>
+
+<p>add/edit a team. Should this be a modal?</p>
+
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Team Name</label>
+                <input type="text" class="form-control" placeholder="Team Name" ng-model="team.name" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Team Leader</label>
+                <input type="text" class="form-control" placeholder="Team Leader" ng-model="team.leader" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Team Second</label>
+                <input type="text" class="form-control" placeholder="Team Second" ng-model="team.second" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <label>Visitor Name(s)</label>
+                <br>
+                <select class="visitor-select">
+                    <option selected>Select one or more visitors</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
