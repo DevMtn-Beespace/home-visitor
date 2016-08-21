@@ -1,4 +1,34 @@
-<nav-directive></nav-directive>
+<nav-directive>
+</nav-directive>
 <h1>My Teams</h1>
 
-<p>list your team(s)</p>
+<div ng-controller="myTeamCtrl">
+    <div class="card card-outline-primary" ng-repeat="team in teams">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+            <ul class="list-unstyled">
+                <li>
+                    <h4 class="card-title">{{team.team_name}}</h4>
+                    <p class="card-text">
+                        <h5>Team Leader: {{team.team_leader}}</h5>
+                        <h5>Team Second: {{team.team_second}}</h5>
+                        <p>Next Visit: date as link here</p>
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.id}}Collapse" aria-expanded="false" aria-controls="{{team.id}}Collapse">
+                                Members
+                            </button>
+                        </p>
+                    </p>
+                    <div class="collapse" id="{{team.id}}Collapse">
+                        <div class="card card-block">
+                            <ul>
+                                <li ng-repeat="name in members"><small>{{name}}</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
