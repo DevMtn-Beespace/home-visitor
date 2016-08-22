@@ -1,1 +1,1 @@
-SELECT * from visit_teams;
+SELECT * from teams;

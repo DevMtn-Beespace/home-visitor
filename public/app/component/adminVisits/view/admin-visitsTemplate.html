@@ -1,91 +1,159 @@
 <nav-directive></nav-directive>
-<h1>Admin Visits</h1>
+<h1 class="text-xs-center">Admin Visits</h1>
 
-<p>list all visit(s)</p>
+<p class="text-xs-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myVisitCollapse" aria-expanded="false" aria-controls="myVisitCollapse">
+        My Visits
+    </button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#allVisitsCollapse" aria-expanded="false" aria-controls="allVisitsCollapse">
+        All Visits
+    </button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
+        Add Visits
+    </button>
+</p>
 
-<p>add/edit a visit. Should this be a modal?</p>
+<div class="collapse" id="editVisitCollapse">
+    <div class="card card-block card-outline-primary">
+        <h3 class="card-header bg-inverse" style="color:white">Edit Visit</h3>
+        <div class="container">
+            <form>
 
-<div class="container">
-    <form>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h4>Add Visit</h4>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <label>Visitee Name</label>
-                    <br>
-                    <select class="visitee-select">
-                        <option selected>Select a Visitee</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <label>Visitor Name(s)</label>
-                    <br>
-                    <select class="visitor-select">
-                        <option selected>Select one or more visitors</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <label>Visit Team Name(s)</label>
-                    <br>
-                    <select class="visitor-select">
-                        <option selected>Or, select one or more Visit Teams</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
-                    <p>note: multiselects to choose multiple visitors, teams? Perhaps logic to display teams with subheads and the rest below?</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <label for="date-input">Date</label>
-                    <input class="form-control" type="date" ng-model="visit.date" value="mm/dd/yyyy" id="date-input">
-                </div>
-                <div class="col-sm-4">
-                    <label for="time-input">Time</label>
-                    <input class="form-control" type="time" value="13:45 PM" id="time-input">
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value=""><small>Impromptu (unscheduled)</small></label>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <label for="contacted-input">Contacted</label>
-                    <input class="form-control" type="date" ng-model="visit.contacted" value="mm/dd/yyyy" id="contacted-input">
-                </div>
-                <div class="col-sm-4">
-                    <label for="confirmed-input">Confirmed</label>
-                    <input class="form-control" type="date" ng-model="visit.confirmed" value="mm/dd/yyyy" id="confirmed-input">
-                </div>
-                <div class="col-sm-4">
-                    <label for="cancelled-input">Cancelled</label>
-                    <input class="form-control" type="date" ng-model="visit.cancelled" value="mm/dd/yyyy" id="cancelled-input">
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </div>
-            <br>
-    </form>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
+                    Close
+                </button>
+            </form>
+        </div>
     </div>
+</div>
+
+<div class="collapse" id="addVisitCollapse">
+    <div class="card card-block card-outline-primary">
+        <h3 class="card-header bg-inverse" style="color:white">Add Visit</h3>
+        <div class="container">
+            <form>
+              <div class="form-group">
+                  <div class="row">
+                      <div class="col-sm-12">
+                          <h4>Add Visit</h4>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <label>Visitee Name</label>
+                          <br>
+                          <select class="visitee-select">
+                              <option selected>Select a Visitee</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <label>Visitor Name(s)</label>
+                          <br>
+                          <select class="visitor-select">
+                              <option selected>Select one or more visitors</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12">
+                          <label>Visit Team Name(s)</label>
+                          <br>
+                          <select class="visitor-select">
+                              <option selected>Or, select one or more Visit Teams</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                          </select>
+                          <p>note: multiselects to choose multiple visitors, teams? Perhaps logic to display teams with subheads and the rest below?</p>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <label for="date-input">Date</label>
+                          <input class="form-control" type="date" ng-model="visit.date" value="mm/dd/yyyy" id="date-input">
+                      </div>
+                      <div class="col-sm-4">
+                          <label for="time-input">Time</label>
+                          <input class="form-control" type="time" value="13:45 PM" id="time-input">
+                      </div>
+                      <div class="col-sm-4">
+                          <div class="form-check-inline">
+                              <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value=""><small>Impromptu (unscheduled)</small></label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-sm-4">
+                          <label for="contacted-input">Contacted</label>
+                          <input class="form-control" type="date" ng-model="visit.contacted" value="mm/dd/yyyy" id="contacted-input">
+                      </div>
+                      <div class="col-sm-4">
+                          <label for="confirmed-input">Confirmed</label>
+                          <input class="form-control" type="date" ng-model="visit.confirmed" value="mm/dd/yyyy" id="confirmed-input">
+                      </div>
+                      <div class="col-sm-4">
+                          <label for="cancelled-input">Cancelled</label>
+                          <input class="form-control" type="date" ng-model="visit.cancelled" value="mm/dd/yyyy" id="cancelled-input">
+                      </div>
+                  </div>
+
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
+                    Close
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="collapse" id="myVisitCollapse">
+    <div class="card card-block">
+        <h3 class="card-header">My Visits</h3>
+        <!-- <div ng-controller="myVisitCtrl">
+            <div class="card card-outline-primary" ng-repeat="visit in visits">
+
+                <div class="card-block">
+                    <ul class="list-unstyled">
+                        <li>
+                          <p>my visits here</p>
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+<div class="collapse in" id="allVisitsCollapse">
+    <!-- <div class="card card-block" ng-controller="adminVisitCtrl">
+        <div class="text-xs-right">
+            <label><strong>Search Visits:</strong></label>
+            <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
+        </div>
+        <h3 class="card-header">All Visits</h3>
+        <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
+
+            <div class="card-block">
+                <ul class="list-unstyled">
+                    <li>
+                      <p>content here</p>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>

@@ -1,2 +1,2 @@
-DELETE FROM visit_teams
+DELETE FROM teams
 WHERE id = $1;

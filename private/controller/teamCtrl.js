@@ -4,18 +4,27 @@ var db = app.get('db');
 
 module.exports = {
   createTeam: function(req, res, next) {
-      db.teams.create_team(function(err, response) {
+      db.teams.create_team(req.body.team_name, req.body.team_leader, req.body.team_second, function(err, response) {
           console.log("CREATE team sighting");
-          console.log(err);
-          res.send('Team Created');
+          if (err) {
+            console.log(err);
+            res.status(400).send("Error");
+          } else {
+            // console.log(response);
+            res.status(201).send("Team Created");
+          }
       });
   },
   getTeams: function(req, res, next) {
       db.teams.get_teams(function(err, response) {
           console.log("GET ALL TEAMS sighting");
-          console.log(err);
-          console.log(response);
+          if (err) {
+            console.log(err);
+            res.status(400).send("Error");
+          } else {
+          // console.log(response);
           res.json(response);
+          }
       });
   },
   getTeamById: function(req, res, next) {

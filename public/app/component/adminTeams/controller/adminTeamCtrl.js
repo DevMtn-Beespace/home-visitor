@@ -1,5 +1,13 @@
 angular.module('app')
-.controller('adminTeamCtrl', function($scope){
+.controller('adminTeamCtrl', function($scope, adminTeamSvc){
+
+  // $scope.getAllTeams = function() {
+  //   adminTeamSvc.getAllTeams().then(function(result){
+  //     // console.log(result);
+  //     $scope.teams = result.data;
+  //   });
+  // };
+  // $scope.getAllTeams();
 
   $scope.members = ["name1","name2","name3","name4","name5","name6"];
 

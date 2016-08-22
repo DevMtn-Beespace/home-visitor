@@ -8,8 +8,13 @@ module.exports = {
   createUser: function(req, res, next) {
       db.users.create_user(function(err, response) {
           console.log("CREATE user sighting");
-          console.log(err);
-          res.send('User Created');
+          if (err) {
+            console.log(err);
+            res.status(400).send("Error");
+          } else {
+            res.status(201).send('User Created');
+          }
+
       });
   },
   getUsers: function(req, res, next) {

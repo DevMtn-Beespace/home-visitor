@@ -1,4 +1,4 @@
-UPDATE visit_teams
+UPDATE teams
 SET
   team_name = $2,
   team_leader = $3,

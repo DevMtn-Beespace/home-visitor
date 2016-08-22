@@ -1,4 +1,4 @@
-INSERT into visit_teams
+INSERT into teams
 (
   team_name,
   team_leader,
@@ -6,7 +6,7 @@ INSERT into visit_teams
 )
 VALUES
 (
-  'Homies from the Hood',
-  1,
-  2
+  $1,
+  $2,
+  $3
 );

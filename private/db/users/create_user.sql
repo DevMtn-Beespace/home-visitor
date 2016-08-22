@@ -10,19 +10,37 @@ INSERT into USERS
   email,
   region,
   member,
-  admin
+  admin,
+  advocate,
+  google_id,
+  facebook_id,
+  visitee_id,
+  visitor_id,
+  advocate_id,
+  team_id,
+  password,
+  username
 )
 VALUES
 (
-  'Michael',
+  'Shannon',
   'Lecke',
   '320 Richard Road',
   'Yardley',
   'PA',
   '19067',
-  '267-257-7778',
-  'mlecke@beespace.com',
+  '215-736-0502',
+  'slecke@beespace.com',
   'Philadelphia',
   true,
-  true
+  true,
+  true,
+  null,
+  null,
+  null,
+  null,
+  null,
+  3,
+  null,
+  null
 );
