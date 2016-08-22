@@ -1,19 +1,23 @@
 <nav-directive></nav-directive>
+<h1 class="text-xs-center">Login</h1>
+
 
 <div class="container">
 
     <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <label for="inputUsername" class="sr-only">Username</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="username" required="" autofocus="" ng-model="user.username">
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="user.password">
         <div class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me
             </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="login(user)">Sign in</button>
     </form>
-
+    <br>
+    <p>If you don't have an account, please <a ui-sref="register">Register</a></p>
+    <div id="welcomeImage">
+    </div>
 </div>

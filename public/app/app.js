@@ -30,6 +30,11 @@ angular.module('app', ['ui.router', 'satellizer'])
       templateUrl: '/app/component/myAvailability/view/my-availabilityTemplate.html',
       controller: 'myAvailabilityCtrl'
     })
+    .state('myInfo', {
+      url: '/my-info',
+      templateUrl: '/app/component/myInfo/view/my-infoTemplate.html',
+      controller: 'myInfoCtrl'
+    })
     .state('visitees', {
       url: '/visitees',
       templateUrl: '/app/component/visitees/view/visiteesTemplate.html',

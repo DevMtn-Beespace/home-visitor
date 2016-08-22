@@ -13,9 +13,7 @@ INSERT into USERS
   region,
   advocate,
   member,
-  admin,
-  google_id,
-  facebook_id
+  admin
 )
 VALUES
 (
@@ -32,7 +30,5 @@ VALUES
   $11,
   $12,
   $13,
-  $14,
-  $15,
-  $16
+  $14
 );

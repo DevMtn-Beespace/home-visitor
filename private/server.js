@@ -24,6 +24,7 @@ var messageCtrl = require('./controller/messageCtrl.js');
 var teamCtrl = require('./controller/teamCtrl.js');
 var availabilityCtrl = require('./controller/availabilityCtrl.js');
 var registerCtrl = require('./controller/registerCtrl.js');
+var loginCtrl = require('./controller/loginCtrl.js');
 
 //ENDPOINTS
 
@@ -31,7 +32,7 @@ var registerCtrl = require('./controller/registerCtrl.js');
 app.get('/api/users', userCtrl.getUsers);
 app.get('/api/users/:id', userCtrl.getUserById);
 app.put('/api/users/:id', userCtrl.updateUser);
-app.post('/api/users', userCtrl.createUser);
+app.post('/api/users', userCtrl.createUser); // users created at login, this one can be used by admin
 app.delete('/api/users/:id', userCtrl.deleteUser);
 
 // VISITS
@@ -78,9 +79,11 @@ app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
 
 // PASSWORD HASH
 app.post('/api/register', registerCtrl.register);
-// app.post('/api/login', loginCtrl.login);
 
+// USER LOGIN INFO
+app.post('/auth/login', loginCtrl.login);
 
+// CATCH ALL 
 app.all('*', function(req, res, next){
   res.sendFile('index.html', { root: '../public'})
 });
