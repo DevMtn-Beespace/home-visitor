@@ -1,50 +1,105 @@
 <nav-directive></nav-directive>
 <h1 class="text-xs-center">My Availability</h1>
-<h4>My Visitor Availability</h4>
-<p>Start (un)availability, End (un)availability</p>
-<h4>My Visitee Availability</h4>
-<p>Start (un)availability, End (un)availability</p>
-<p>default always available. User can mark unavailable range, or available range BUT NOT both</p>
 
-<div class="container">
-    <form>
-        <fieldset class="form-group">
-            <div class="row">
-                <div class="col-xs-12">
+<p class="text-xs-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myAvailabilityCollapse" aria-expanded="false" aria-controls="myAvailabilityCollapse">
+        My Availability
+    </button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addAvailabilityCollapse" aria-expanded="false" aria-controls="addAvailabilityCollapse">
+        Set Availability
+    </button>
+</p>
 
-                    <legend>Availability</legend>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty:
-                        </label>
-                    </div>
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Choose to indicate Unavailability:
-                        </label>
-                    </div>
+<section class="myVisits" ng-controller="myAvailabilityCtrl">
 
-                </div>
-            </div>
-        </fieldset>
-        <fieldset class="form-group">
-            <div class="row">
-                <div class="col-xs-12">
-                    <label for="begin-input">Start Date (time optional)</label>
-                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="begin-input">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <label for="end-input">End Date (time optional)</label>
-                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="end-input">
-                </div>
-            </div>
-        </fieldset>
-        <div class="row">
-            <div class="col-xs-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="collapse" id="editAvailabilityCollapse">
+        <div class="card card-outline-primary">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-block">
+                </p>Edit availability</p>
             </div>
         </div>
-    </form>
-</div>
+
+    </div>
+
+    <div class="collapse" id="addAvailabilityCollapse">
+
+        <div class="card card-outline-primary">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-block">
+              <h4 class="card-title">Set Availability</h4>
+                <div class="container">
+                    <form>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty:
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Choose to indicate Unavailability:
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="begin-input">Start Date (time optional)</label>
+                                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="begin-input">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="end-input">End Date (time optional)</label>
+                                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="end-input">
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="collapse" id="myAvailabilityCollapse">
+        <div class="card card-outline-primary">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-block">
+                <ul class="list-unstyled">
+                    <li>
+                        <h4 class="card-title">My Availability</h4>
+                        <p class="card-text">
+                            <h5>As Visitor</h5>
+                            <p>(un)availability: {{visitor_start_date}} - {{visitor_end_date}}</p>
+                            <h5>As Visitee</h5>
+                            <p>(un)availability: {{visitee_start_date}} - {{visitee_end_date}}</p>
+                            <p>
+                              <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#myAvailabilityCollapse" aria-expanded="false" aria-controls="myAvailabilityCollapse">
+                                  Close
+                              </button>
+                            </p>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<p>By default you are always available. User can mark unavailable range, or available range BUT NOT both.</p>

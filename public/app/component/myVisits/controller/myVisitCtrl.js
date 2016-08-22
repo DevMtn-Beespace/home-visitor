@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('myVisitCtrl', function($scope, $auth, $location){
+.controller('myVisitCtrl', function($scope, $auth, $location, myVisitSvc){
 
   $scope.checkloggedIn = function() {
         if(!($auth.getToken())) {
@@ -7,6 +7,17 @@ angular.module('app')
         }
       }();
 
-  
+    $scope.getMyVisits = function() {
+      myVisitSvc.getMyVisits().then(function(result){
+        console.log(result);
+        $scope.visits = result.data;
+      });
+    };
+
+
+  $scope.getMyVisits();
+
+
+
 
 });

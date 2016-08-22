@@ -1,5 +1,11 @@
 angular.module('app')
-.controller('myTeamCtrl', function($scope, myTeamSvc){
+.controller('myTeamCtrl', function($scope, $auth, $location, myTeamSvc){
+
+  $scope.checkloggedIn = function() {
+        if(!($auth.getToken())) {
+          $location.path('/');
+        }
+      }();
 
   $scope.getMyTeams = function() {
     myTeamSvc.getMyTeams().then(function(result){
@@ -7,6 +13,7 @@ angular.module('app')
       $scope.teams = result.data;
     });
   };
+
   $scope.getMyTeams();
 
   $scope.members = ["name1","name2","name3","name4","name5","name6"];

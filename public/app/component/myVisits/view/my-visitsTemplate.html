@@ -1,6 +1,58 @@
 <nav-directive></nav-directive>
 <h1 class="text-xs-center">My Visits</h1>
 
-<p>list your visits</p>
+<p class="text-xs-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myVisitCollapse" aria-expanded="false" aria-controls="myVisitCollapse">
+        My Visits
+    </button>
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
+        Add Visit
+    </button>
+</p>
 
-<p>add a visit. See my teams</p>
+<section class="myVisits" ng-controller="myVisitCtrl">
+
+  <div class="collapse" id="editVisitCollapse">
+    </p>Edit a visit IF you are a leader or second or if there's no team. See admin teams</p>
+  </div>
+
+  <div class="collapse" id="addVisitCollapse">
+    <p>add a visit</p>
+  </div>
+
+  <div class="collapse" id="myVisitCollapse">
+    <div class="card card-outline-primary" ng-repeat="visit in visits">
+        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+        <div class="card-block">
+            <ul class="list-unstyled">
+                <li>
+                    <h4 class="card-title">Visit to: {{visit.visitee_fullName}}</h4>
+                    <p class="card-text">
+                        <h5>Visit Date: {{visit.visit_date}} - {{visit.visit_time}}</h5>
+                        <p>contacted on: {{visit.contacted}}</p>
+                        <p>confirmed on: {{visit.confirmed}}</p>
+                        <p>cancelled on: {{visit.cancelled}}</p>
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
+                                Visitors
+                            </button>
+                            <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="#editVisitCollapse">
+                                Edit Visit
+                            </button>
+                        </p>
+                    </p>
+                    <div class="collapse" id="{{visit.id}}Collapse">
+                        <div class="card card-block">
+                            <ul>
+                                <li ng-repeat="visitor in visitors"><small>{{name}}</small></li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+  </div>
+
+</section>
