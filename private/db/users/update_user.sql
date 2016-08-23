@@ -19,4 +19,4 @@ visitee_id = $17,
 visitor_id = $18,
 advocate_id = $19,
 team_id = $20
-WHERE id = $1;
+WHERE user_id = $1;

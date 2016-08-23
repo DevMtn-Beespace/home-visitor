@@ -10,11 +10,11 @@
     </button>
 </p>
 
-<section class="myVisits" ng-controller="myVisitCtrl">
+<section class="myVisits">
 
   <div class="collapse" id="editVisitCollapse">
     <div class="card card-block card-outline-primary">
-        <h3 class="card-header bg-inverse" style="color:white">Edit Visit</h3>
+        <h3 class="card-header bg-inverse" style="color:white">Edit Visit<button class="btn btn-danger pull-xs-right">Delete</button></h3>
         <div class="container">
             <form>
                 <div class="form-group">
@@ -92,8 +92,8 @@
                     </div>
 
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="editVisitCollapse">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="editVisitCollapse">
                         Close
                     </button>
             </form>
@@ -182,8 +182,8 @@
                       </div>
 
                       <br>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
+                      <button type="submit" class="btn btn-success">Submit</button>
+                      <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
                           Close
                       </button>
               </form>
@@ -198,7 +198,7 @@
             <label><strong>Search Visits:</strong></label>
             <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
         </div>
-        <h3 class="card-header">My Visits</h3>
+        <!-- <h3 class="card-header">My Visits</h3> -->
         <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
 
             <div class="card-block">

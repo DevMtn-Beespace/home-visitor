@@ -1,2 +1,2 @@
 DELETE FROM visitees
-WHERE id = $1;
+WHERE visitee_id = $1;

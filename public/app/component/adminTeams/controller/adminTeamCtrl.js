@@ -1,5 +1,11 @@
 angular.module('app')
-.controller('adminTeamCtrl', function($scope, adminTeamSvc){
+.controller('adminTeamCtrl', function($scope, $auth, $location, adminTeamSvc){
+
+  $scope.checkloggedIn = function() {
+        if(!($auth.getToken())) {
+          $location.path('/');
+        }
+      }();
 
   $scope.getAllTeams = function() {
     adminTeamSvc.getAllTeams().then(function(result){
@@ -21,6 +27,8 @@ angular.module('app')
       };
     });
   };
+
+  // be sure to invoke add Team!
 
   // $scope.teams = [
   //   {"id": 1,

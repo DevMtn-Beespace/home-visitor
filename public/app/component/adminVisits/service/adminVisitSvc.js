@@ -1,7 +1,6 @@
 angular.module('app')
 .service('adminVisitSvc', function($http){
   this.getMyVisits = function(){
-    console.log("hit get my admin visits");
     // need logic to get only the current user's teams
     return $http({
       method: 'GET',

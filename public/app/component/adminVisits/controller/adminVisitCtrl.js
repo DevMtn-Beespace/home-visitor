@@ -9,7 +9,7 @@ angular.module('app')
 
   $scope.getAllVisits = function() {
     adminVisitSvc.getAllVisits().then(function(result){
-      console.log(result);
+      // console.log(result);
       $scope.allVisits = result.data;
     });
   }
@@ -17,7 +17,7 @@ angular.module('app')
 
   $scope.getMyVisits = function() {
     adminVisitSvc.getMyVisits().then(function(result){
-      console.log(result);
+      // console.log(result);
       $scope.visits = result.data;
     });
   }

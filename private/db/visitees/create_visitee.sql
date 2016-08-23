@@ -4,13 +4,13 @@ INSERT into visitees
   priority,
   user_id,
   team_id,
-  availability_id
+  avail_id
 )
 VALUES
 (
-  'bi-weekly',
-  'high',
+  'monthly',
+  'low',
+  2,
   1,
-  1,
-  4
+  1
 );

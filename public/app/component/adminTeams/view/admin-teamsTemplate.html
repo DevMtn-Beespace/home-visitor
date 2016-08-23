@@ -13,11 +13,11 @@
     </button>
 </p>
 
-<section class="adminTeam" ng-controller="adminTeamCtrl">
+<section class="adminTeam">
 
     <div class="collapse" id="editTeamCollapse">
         <div class="card card-block card-outline-primary">
-            <h3 class="card-header bg-inverse" style="color:white">Edit Team</h3>
+            <h3 class="card-header bg-inverse" style="color:white">Edit Team<button class="btn btn-danger pull-xs-right">Delete</button></h3>
             <div class="container">
                 <form>
                     <div class="row">
@@ -57,8 +57,8 @@
                     </div>
                 </div> -->
                     <br>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editTeamCollapse" aria-expanded="false" aria-controls="addTeamCollapse">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#editTeamCollapse" aria-expanded="false" aria-controls="editTeamCollapse">
                         Close
                     </button>
                 </form>
@@ -108,8 +108,8 @@
                     </div>
                 </div> -->
                     <br>
-                    <button type="submit" class="btn btn-primary" ng-click="addteam()">Submit</button>
-                    <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addTeamCollapse" aria-expanded="false" aria-controls="addTeamCollapse">
+                    <button type="submit" class="btn btn-success" ng-click="addteam()">Submit</button>
+                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addTeamCollapse" aria-expanded="false" aria-controls="addTeamCollapse">
                         Close
                     </button>
                 </form>

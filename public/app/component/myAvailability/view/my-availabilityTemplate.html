@@ -10,106 +10,90 @@
     </button>
 </p>
 
-<section class="myVisits" ng-controller="myAvailabilityCtrl">
-
-    <div class="collapse" id="editAvailabilityCollapse">
-        <div class="card card-outline-primary">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-block">
-                </p>Edit availability</p>
-            </div>
-        </div>
-
-    </div>
+<section class="myVisits">
 
     <div class="collapse" id="addAvailabilityCollapse">
-
-        <div class="card card-outline-primary">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-block">
-              <h4 class="card-title">Set Availability</h4>
-                <div class="container">
-                    <form>
-                        <fieldset class="form-group">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="form-group">
-                                      <div class="form-check-inline">
-                                          <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="">&nbsp;Visitor</label>
-                                      </div>
-                                      <div class="form-check-inline">
-                                          <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" value="">&nbsp;Visitee</label>
-                                      </div>
-                                  </div>
-                                  <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Or, choose to indicate Unavailability
-                                        </label>
-                                    </div>
-                                </div>
+      <div class="card card-block card-outline-primary">
+          <h3 class="card-header bg-inverse" style="color:white">Set Availability</h3>
+          <div class="container">
+            <form>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <div class="col-xs-12">
+                          <div class="form-group">
+                              <div class="form-check-inline">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">&nbsp;Visitor</label>
+                              </div>
+                              <div class="form-check-inline">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">&nbsp;Visitee</label>
+                              </div>
+                          </div>
+                          <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty
+                                </label>
                             </div>
-                        </fieldset>
-                        <fieldset class="form-group">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label for="begin-input">Start Date (time optional)</label>
-                                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="begin-input">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <label for="end-input">End Date (time optional)</label>
-                                    <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="end-input">
-                                </div>
-                            </div>
-                        </fieldset>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addAvailabilityCollapse" aria-expanded="false" aria-controls="addAvailabilityCollapse">
-                                    Close
-                                </button>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Or, choose to indicate Unavailability
+                                </label>
                             </div>
                         </div>
-                    </form>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label for="begin-input">Start Date (time optional)</label>
+                            <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="begin-input">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label for="end-input">End Date (time optional)</label>
+                            <input class="form-control" type="datetime-local" value="mm/dd/yyyy, 03:45 PM" id="end-input">
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addAvailabilityCollapse" aria-expanded="false" aria-controls="addAvailabilityCollapse">
+                            Close
+                        </button>
+                    </div>
                 </div>
-
-
-            </div>
-        </div>
-
-
+            </form>
+          </div>
+      </div>
     </div>
 
     <div class="collapse in" id="myAvailabilityCollapse">
-        <div class="card card-outline-primary">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-block">
-                <ul class="list-unstyled">
+      <div class="card card-block">
+          <!-- <h3 class="card-header">My Availability</h3> -->
+          <div class="card card-outline-primary">
+              <div class="card-block">
+                  <ul class="list-unstyled">
                     <li>
-                        <h4 class="card-title">My Availability</h4>
+                        <!-- <h4 class="card-title">My Availability</h4> -->
                         <p class="card-text">
                             <h5>As Visitor</h5>
                             <p>(un)availability: {{visitor_start_date}} - {{visitor_end_date}}</p>
                             <h5>As Visitee</h5>
                             <p>(un)availability: {{visitee_start_date}} - {{visitee_end_date}}</p>
                             <p>
-                              <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#myAvailabilityCollapse" aria-expanded="false" aria-controls="myAvailabilityCollapse">
+                              <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#myAvailabilityCollapse" aria-expanded="false" aria-controls="myAvailabilityCollapse">
                                   Close
                               </button>
                             </p>
                         </p>
                     </li>
-                </ul>
-            </div>
-        </div>
+                  </ul>
+              </div>
+          </div>
+      </div>
     </div>
 
 </section>
