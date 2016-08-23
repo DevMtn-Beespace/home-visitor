@@ -33,17 +33,26 @@
                         <fieldset class="form-group">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <div class="radio">
+                                  <div class="form-group">
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="">&nbsp;Visitor</label>
+                                      </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" value="">&nbsp;Visitee</label>
+                                      </div>
+                                  </div>
+                                  <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty:
+                                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> Choose to indicate Availabilty
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Choose to indicate Unavailability:
+                                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Or, choose to indicate Unavailability
                                         </label>
                                     </div>
-
                                 </div>
                             </div>
                         </fieldset>
@@ -64,6 +73,9 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <button type="submit" class="btn btn-primary">Submit</button>
+                                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addAvailabilityCollapse" aria-expanded="false" aria-controls="addAvailabilityCollapse">
+                                    Close
+                                </button>
                             </div>
                         </div>
                     </form>
@@ -76,7 +88,7 @@
 
     </div>
 
-    <div class="collapse" id="myAvailabilityCollapse">
+    <div class="collapse in" id="myAvailabilityCollapse">
         <div class="card card-outline-primary">
             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
             <div class="card-block">
@@ -102,4 +114,5 @@
 
 </section>
 
-<p>By default you are always available. User can mark unavailable range, or available range BUT NOT both.</p>
+<p>By default you are always available.</p>
+You may select an unavailable range, or an available range but <em>NOT</em> both.</p>
