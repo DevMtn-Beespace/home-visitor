@@ -16,4 +16,21 @@ this.addUser = function($http){
   })
 }
 
+this.deleteUser = function(user_id) {
+  console.log(user_id);
+  return $http({
+    method: 'DELETE',
+    url: 'http://localhost:3000/api/users/' + user_id
+  })
+}
+
+this.editUser = function(data) {
+  console.log("data.user_id from user service", data.user_id);
+  return $http({
+    method: 'PUT',
+    url: 'http://localhost:3000/api/users/' + data.user_id,
+    data: data
+  })
+}
+
 });

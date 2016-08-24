@@ -1,2 +1,2 @@
 DELETE FROM visits
-WHERE id = $1;
+WHERE visit_id = $1;

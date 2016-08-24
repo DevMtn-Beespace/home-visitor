@@ -1,12 +1,29 @@
 angular.module('app')
 .service('myInfoSvc', function($http){
-  this.getMyInfo = function(){
-    // need logic to get only the current user's info
+
+  // this.getMyTeams = function(){
+  //   return $http({
+  //     method: 'GET'
+  //     url: '',
+  //     data: data
+  //   })
+  // }
+
+  this.editUser = function(data) {
+    console.log("data.user_id from user service", data.user_id);
     return $http({
-      method: 'GET',
-      url: 'http://localhost:3000/api/users/2'
-      // url: 'http://localhost:3000/api/users/' + $1;
-      // check above. Must get current user ID.
+      method: 'PUT',
+      url: 'http://localhost:3000/api/users/' + data.user_id,
+      data: data
     })
   }
+
+  this.getMyInfo = function(userId) {
+    // console.log("get my info");
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/users/' + userId,
+    })
+  }
+
 });

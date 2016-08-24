@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('adminUserCtrl', function($scope, $auth, $location, adminUserSvc){
+.controller('adminUserCtrl', function($scope, $auth, $location, ngDialog, adminUserSvc){
 
   $scope.checkloggedIn = function() {
         if(!($auth.getToken())) {
@@ -25,7 +25,35 @@ angular.module('app')
     });
   };
 
-  // be sure to invoke add User!
+  $scope.deleteUser = function(user) {
+    adminUserSvc.deleteUser(user.user_id).then(function(r){
+      $scope.getAllUsers();
+    })
+  };
+
+  $scope.editUserModal = function(user) {
+    $scope.user = user;
+    ngDialog.open({ template: './app/component/adminUsers/view/adminEditUserModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("edit user modal", user);
+
+  };
+
+  $scope.closeEditModal = function() {
+    ngDialog.close();
+    console.log("close edit user modal");
+
+  };
+
+  $scope.editUser = function(user) {
+    adminUserSvc.editUser(user).then(function(r){
+      console.log("response", r);
+      console.log("user_id", user.user_id);
+      console.log("edit user from controller");
+      ngDialog.close();
+      $location.path('/admin-users');
+    })
+  }
+
 
   // fake user team data for formatting
   $scope.teams = [

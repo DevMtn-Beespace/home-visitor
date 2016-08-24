@@ -12,4 +12,4 @@ visitor_note = $10,
 visitee_note = $11,
 admin_note = $12
 WHERE
-id = $1;
+visit_id = $1;

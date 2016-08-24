@@ -1,4 +1,4 @@
-angular.module('app', ['ui.router', 'satellizer'])
+angular.module('app', ['ui.router', 'satellizer', 'ngDialog'])
 .config(function($stateProvider, $urlRouterProvider, $authProvider, $locationProvider){
 
   $locationProvider.html5Mode(true);

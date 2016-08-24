@@ -16,7 +16,9 @@ module.exports = {
             // otherwise usign satellizer
             hashPassword = null;
         }
-        db.register.checkForUser([req.body.username], function(err, response) {
+        db.register.checkForUser([req.body.username, req.body.email], function(err, response) {
+          console.log("checking for username or email", response);
+          console.log("req body", req.body);
             if (response.length === 0) {
                 // username available
                 db.register.registerUser([
@@ -30,17 +32,16 @@ module.exports = {
                     req.body.zip,
                     req.body.phone,
                     req.body.email,
-                    req.body.region,
-                    req.body.advocate,
-                    req.body.member,
-                    req.body.admin
+                    req.body.admin,
+                    req.body.visitee,
+                    req.body.visitor
                 ], function(err, response) {
                     res.status(201).send("user created");
                 });
             } else {
                 // user already taken
-                // console.log(response);
-                res.status(400).send('Username already taken, perhaps by you');
+                console.log(response);
+                res.status(200).send('Username or email already taken, perhaps by you');
             }
         })
     }

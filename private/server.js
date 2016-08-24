@@ -77,13 +77,13 @@ app.put('/api/availability/:id', availabilityCtrl.updateAvailability);
 app.post('/api/availability', availabilityCtrl.createAvailability);
 app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
 
-// PASSWORD HASH
+// REGISTER
 app.post('/api/register', registerCtrl.register);
 
 // USER LOGIN INFO
 app.post('/auth/login', loginCtrl.login);
 
-// CATCH ALL 
+// CATCH ALL
 app.all('*', function(req, res, next){
   res.sendFile('index.html', { root: '../public'})
 });

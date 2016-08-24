@@ -1,6 +1,7 @@
 <nav-directive></nav-directive>
 <h1 class="text-xs-center">Admin Users</h1>
 
+
 <p class="text-xs-center">
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#allUsersCollapse" aria-expanded="false" aria-controls="allUsersCollapse">
         All Users
@@ -11,99 +12,6 @@
 </p>
 
 <section class="adminUsers">
-
-    <div class="collapse" id="editUserCollapse">
-        <div class="card card-block card-outline-primary">
-            <h3 class="card-header bg-inverse" style="color:white">Edit User<button class="btn btn-danger pull-xs-right">Delete</button></h3>
-            <div class="container">
-                <form>
-                    <div class="row">
-                        <div class="col-xs-12 text-xs-left"><span><small>User Type (choose one or all): </small></span>
-                            <div class="form-group">
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value=""><small>Visitor</small></label>
-                                </div>
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value=""><small>Visitee</small></label>
-                                </div>
-                                <!-- <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value=""><small>Advocate</small></label>
-                            </div>
-                            <div class="form-check-inline">
-                                <label class="form-check-label">
-                                    <input class="form-check-input" type="checkbox" value=""><small>Member</small></label>
-                            </div> -->
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox" value=""><small>Admin</small></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <label>First</label>
-                            <input type="text" class="form-control" placeholder="First" required="" ng-model="user.first">
-                        </div>
-                        <div class="col-xs-4">
-                            <label>Last</label>
-                            <input type="text" class="form-control" placeholder="Last" required="" ng-model="user.last" />
-                        </div>
-                        <div class="col-xs-4">
-                            <label>Phone</label>
-                            <input type="text" class="form-control" placeholder="Phone" ng-model="user.phone" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Address</label>
-                            <input type="text" class="form-control" placeholder="Address" ng-model="user.address" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <label>City</label>
-                            <input type="text" class="form-control" placeholder="City" ng-model="user.city" />
-                        </div>
-                        <div class="col-xs-4">
-                            <label>State</label>
-                            <input type="text" class="form-control" placeholder="State" ng-model="user.state" />
-                        </div>
-                        <div class="col-xs-4">
-                            <label>Zip</label>
-                            <input type="text" class="form-control" placeholder="Zip" ng-model="user.zip" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Email</label>
-                            <input type="text" class="form-control" placeholder="Email" ng-model="user.email" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Username (can be email)</label>
-                            <input type="text" class="form-control" placeholder="Username" ng-model="user.username" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Password</label>
-                            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="user.password">
-                        </div>
-                    </div>
-                    <br>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#editUserCollapse" aria-expanded="false" aria-controls="editUserCollapse">
-                        Close
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
 
     <div class="collapse" id="addUserCollapse">
         <div class="card card-block card-outline-primary">
@@ -206,7 +114,6 @@
             </div>
             <h3 class="card-header">All Users</h3>
             <div class="card card-outline-primary" ng-repeat="user in users | filter:userText | orderBy:'user.last_name'">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                 <div class="card-block">
                     <ul class="list-unstyled">
                         <li>
@@ -219,18 +126,31 @@
                                 <p>Phone: <a href="tel:{{user.phone}}">{{user.phone}}</a>
                                   <br>Email: <a href="mailto:{{user.email}}">{{user.email}}</a>
                                 </p>
-                                <p>Region: {{user.region}}</p>
+
                                 <p>
-                                  <i class="fa fa-check" aria-hidden="true"></i><small>Member</small>&nbsp;
-                                  <!-- <i class="fa fa-check" aria-hidden="true"></i><small>Advocate</small>&nbsp; -->
+                                  <div class="form-group">
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.visitor}}" disabled="true"><small>Visitor</small></label>
+                                      </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.visitee}}" disabled="true"><small>Visitee</small></label>
+                                      </div>
+                                      <div class="form-check-inline">
+                                          <label class="form-check-label">
+                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.admin}}" disabled="true"><small>Admin</small></label>
+                                      </div>
+                                  </div>
+                                  <!-- <i class="fa fa-check" aria-hidden="true"></i><small>Member</small>&nbsp;
                                   <i class="fa fa-check" aria-hidden="true"></i><small>Visitor</small>&nbsp;
                                   <i class="fa fa-check" aria-hidden="true"></i><small>Visitee</small>&nbsp;
-                                  <i class="fa fa-check" aria-hidden="true"></i><small>Admin</small>&nbsp;
+                                  <i class="fa fa-check" aria-hidden="true"></i><small>Admin</small>&nbsp; -->
                                 <p>
                                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}adminCollapse" aria-expanded="false" aria-controls="{{user.id}}adminCollapse">
                                         Teams
                                     </button>
-                                    <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editUserCollapse" aria-expanded="false" aria-controls="#editUserCollapse">
+                                    <button class="btn btn-success pull-xs-right" ng-click="editUserModal(user)">
                                         Edit User
                                     </button>
                                 </p>
@@ -247,7 +167,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
 </section>

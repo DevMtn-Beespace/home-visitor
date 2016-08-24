@@ -10,10 +10,9 @@ INSERT into USERS
   zip,
   phone,
   email,
-  region,
-  advocate,
-  member,
-  admin
+  admin,
+  visitee,
+  visitor
 )
 VALUES
 (
@@ -29,6 +28,5 @@ VALUES
   $10,
   $11,
   $12,
-  $13,
-  $14
+  $13
 );

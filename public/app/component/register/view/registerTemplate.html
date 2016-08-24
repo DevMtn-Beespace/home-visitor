@@ -8,11 +8,11 @@
                 <div class="form-group">
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value=""><small>Visitor</small></label>
+                            <input class="form-check-input" ng-model="user.visitor" type="checkbox" value="visitor"><small>Visitor</small></label>
                     </div>
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value=""><small>Visitee</small></label>
+                            <input class="form-check-input" ng-model="user.visitee" type="checkbox" value="visitee"><small>Visitee</small></label>
                     </div>
                     <!-- <div class="form-check-inline">
                         <label class="form-check-label">
@@ -24,7 +24,7 @@
                     </div> -->
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value=""><small>Admin</small></label>
+                            <input class="form-check-input" ng-model="user.admin" type="checkbox" value="admin"><small>Admin</small></label>
                     </div>
                 </div>
             </div>
@@ -32,11 +32,11 @@
         <div class="row">
             <div class="col-xs-4">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="First" required="" ng-model="user.first">
+                <input type="text" class="form-control" placeholder="First" required="" ng-model="user.first_name">
             </div>
             <div class="col-xs-4">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last" required="" ng-model="user.last" />
+                <input type="text" class="form-control" placeholder="Last" required="" ng-model="user.last_name" />
             </div>
             <div class="col-xs-4">
                 <label>Phone</label>
@@ -84,7 +84,7 @@
         <br>
         <div class="row">
             <div class="col-xs-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button ng-click="register(user)" class="btn btn-primary">Submit</button>
             </div>
         </div>
         <br>

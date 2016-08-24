@@ -8,4 +8,13 @@ angular.module('app')
         }
       }();
 
+  $scope.register = function(user) {
+    registerSvc.register(user).then(function(result){
+      console.log(result);
+      $location.path('/login');
+    })
+    console.log("register event triggered", user);
+
+  };
+
 });

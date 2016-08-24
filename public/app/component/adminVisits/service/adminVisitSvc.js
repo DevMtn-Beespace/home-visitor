@@ -15,5 +15,13 @@ angular.module('app')
     })
   };
 
+  this.deleteVisit = function(visit_id) {
+    console.log(visit_id);
+    return $http({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/visits/' + visit_id
+    })
+  }
+
 
 });

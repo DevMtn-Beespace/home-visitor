@@ -9,7 +9,7 @@ angular.module('app')
           $scope.loggedIn = true;
           console.log("logged IN");
           // $scope.user = JSON.parse(window.localStorage.getItem('user'));
-          // console.log($scope.user);
+          // console.log("$scope.user", $scope.user);
         }
       }();
 

@@ -1,1 +1,1 @@
-SELECT * from teams where id = $1;
+SELECT * from teams where team_id = $1;

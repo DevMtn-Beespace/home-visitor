@@ -1,4 +1,5 @@
 var app = require('../server.js');
+var passwordHash = require('password-hash');
 
 var db = app.get('db');
 
@@ -39,11 +40,20 @@ module.exports = {
         });
   },
   updateUser: function(req, res, next) {
+    console.log("back end userCtrl fired");
+    console.log("req params ID", req.params.id);
       if (req.params.id) {
-        console.log(req.params.id, req.body.first_name, req.body.last_name, req.body.address, req.body.city, req.body.state, req.body.zip);
-        console.log(req.body.region, req.body.phone, req.body.email, req.body.member, req.body.admin);
-        db.users.update_user(
+        var hashPassword;
+        if (req.body.password) {
+            hashPassword = passwordHash.generate(req.body.password, {
+                algorithm: 'sha256'
+            });
+        }
+        console.log("hash Pass", hashPassword);
+        db.users.update_user([
           req.params.id,
+          req.body.username,
+          hashPassword,
           req.body.first_name,
           req.body.last_name,
           req.body.address,
@@ -52,18 +62,10 @@ module.exports = {
           req.body.zip,
           req.body.phone,
           req.body.email,
-          req.body.google_profile_pic,
-          req.body.region,
-          req.body.member,
           req.body.admin,
-          req.body.advocate,
-          req.body.google_id,
-          req.body.facebook_id,
-          req.body.visitee_id,
-          req.body.visitor_id,
-          req.body.advocate_id,
-          req.body.team_id,
-          function(err, response) {
+          req.body.visitee,
+          req.body.visitor
+        ], function(err, response) {
             console.log("UPDATE USER sighting");
             console.log(err);
             res.json(response);
@@ -74,7 +76,9 @@ module.exports = {
       }
   },
   deleteUser: function(req, res, next) {
+    console.log(req.params.id);
       if (req.params.id) {
+        console.log("before delete db func");
           db.users.delete_user(req.params.id, function(err, response) {
               console.log("DELETE USER sighting");
               console.log(err);

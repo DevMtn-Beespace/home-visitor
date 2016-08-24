@@ -15,7 +15,7 @@
 
 <section class="adminVisits">
 
-    <div class="collapse" id="editVisitCollapse">
+    <!-- <div class="collapse" id="editVisitCollapse">
       <div class="card card-block card-outline-primary">
           <h3 class="card-header bg-inverse" style="color:white">Edit Visit<button class="btn btn-danger pull-xs-right">Delete</button></h3>
           <div class="container">
@@ -103,7 +103,7 @@
               </div>
           </div>
       </div>
-    </div>
+    </div> -->
 
     <div class="collapse" id="addVisitCollapse">
         <div class="card card-block card-outline-primary">
@@ -217,7 +217,7 @@
                                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
                                     Visitors
                                 </button>
-                                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="#editVisitCollapse">
+                                <button class="btn btn-success pull-xs-right" ng-click="editVisitModal(visit)">
                                     Edit Visit
                                 </button>
                             </p>
@@ -255,11 +255,11 @@
                             <p>confirmed on: {{visitAll.confirmed}}</p>
                             <p>cancelled on: {{visitAll.cancelled}}</p>
                             <p>
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visitAll.id}}Collapse" aria-expanded="false" aria-controls="{{visitAll.id}}Collapse">
-                                    Visitors
-                                </button>
-                                <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editVisitCollapse" aria-expanded="false" aria-controls="#editVisitCollapse">
-                                    Edit Visit
+                              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visitAll.id}}Collapse" aria-expanded="false" aria-controls="{{visitAll.id}}Collapse">
+                                  Visitors
+                              </button>
+                                <button class="btn btn-success pull-xs-right" ng-click="editVisitModal(visit)">
+                                  Edit Visit
                                 </button>
                             </p>
                         </p>

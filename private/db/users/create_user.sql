@@ -17,7 +17,6 @@ INSERT into USERS
   visitee_id,
   visitor_id,
   advocate_id,
-  team_id,
   password,
   username
 )
@@ -40,7 +39,6 @@ VALUES
   1,
   null,
   null,
-  3,
   null,
   null
 );

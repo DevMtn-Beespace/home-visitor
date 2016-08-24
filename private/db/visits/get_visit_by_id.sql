@@ -1,1 +1,1 @@
-SELECT * from visits where id = $1;
+SELECT * from visits where visit_id = $1;
