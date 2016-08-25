@@ -43,6 +43,13 @@ angular.module('app')
 
         };
 
+        $scope.addVisitModal = function() {
+          ngDialog.open({ template: './app/component/myVisits/view/addVisitModal.html', className: 'ngdialog-theme-default', scope: $scope });
+          console.log("add visit modal");
+
+        };
+
+
         $scope.closeModal = function() {
           ngDialog.close();
         };
