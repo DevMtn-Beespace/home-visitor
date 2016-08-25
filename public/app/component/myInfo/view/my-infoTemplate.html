@@ -5,98 +5,12 @@
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myInfoCollapse" aria-expanded="false" aria-controls="myInfoCollapse">
         My Info
     </button>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#editInfoCollapse" aria-expanded="false" aria-controls="editInfoCollapse">
+    <button class="btn btn-primary" type="button" ng-click="editUserModal(user)">
         Edit My Info
     </button>
 </p>
 
 <section class="myInfo">
-
-<div class="collapse" id="editInfoCollapse">
-  <div class="card card-block card-outline-primary">
-      <h3 class="card-header bg-inverse" style="color:white">Edit My Info</h3>
-      <div class="container">
-          <form>
-              <div class="row">
-                  <div class="col-xs-12 text-xs-left"><span><small>User Type (choose one or all): </small></span>
-                      <div class="form-group">
-                          <div class="form-check-inline">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" ng-checked="{{user.visitor}}" ng-model="user.visitor"><small>Visitor</small></label>
-                          </div>
-                          <div class="form-check-inline">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" ng-checked="{{user.visitee}}" ng-model="user.visitee"><small>Visitee</small></label>
-                          </div>
-                          <div class="form-check-inline">
-                              <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" ng-checked="{{user.admin}}" ng-model="user.admin"><small>Admin</small></label>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-4">
-                      <label>First</label>
-                      <input type="text" class="form-control" placeholder="First" required="" value="{{user.first_name}}" ng-model="user.first_name">
-                  </div>
-                  <div class="col-xs-4">
-                      <label>Last</label>
-                      <input type="text" class="form-control" placeholder="Last" required="" value="{{user.last_name}}" ng-model="user.last_name" />
-                  </div>
-                  <div class="col-xs-4">
-                      <label>Phone</label>
-                      <input type="text" class="form-control" placeholder="Phone" value="{{user.phone}}" ng-model="user.phone" />
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      <label>Address</label>
-                      <input type="text" class="form-control" placeholder="Address" value="{{user.address}}" ng-model="user.address" />
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-4">
-                      <label>City</label>
-                      <input type="text" class="form-control" placeholder="City" value="{{user.city}}" ng-model="user.city" />
-                  </div>
-                  <div class="col-xs-4">
-                      <label>State</label>
-                      <input type="text" class="form-control" placeholder="State" value="{{user.state}}" ng-model="user.state" />
-                  </div>
-                  <div class="col-xs-4">
-                      <label>Zip</label>
-                      <input type="text" class="form-control" placeholder="Zip" value="{{user.zip}}" ng-model="user.zip" />
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      <label>Email</label>
-                      <input type="text" class="form-control" placeholder="Email" value="{{user.email}}" ng-model="user.email" />
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      <label>Username (can be email)</label>
-                      <input type="text" class="form-control" placeholder="Username" value"{{user.username}}" ng-model="user.username" />
-                  </div>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      <label>Password</label>
-                      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" value"{{user.password}}" ng-model="user.password">
-                  </div>
-              </div>
-              <br>
-              <button ng-click="editUser(user)" class="btn btn-success">Submit</button>
-              <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#editInfoCollapse" aria-expanded="false" aria-controls="editInfoCollapse">
-                  Close
-              </button>
-          </form>
-      </div>
-  </div>
-
-</div>
 
 <div class="collapse in" id="myInfoCollapse">
   <div class="card card-block">
