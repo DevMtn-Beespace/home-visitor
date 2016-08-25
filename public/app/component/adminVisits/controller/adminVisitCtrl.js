@@ -30,10 +30,14 @@ angular.module('app')
 
   };
 
-  $scope.closeEditModal = function() {
-    ngDialog.close();
-    console.log("close edit visit modal");
+  $scope.addVisitModal = function() {
+    ngDialog.open({ template: './app/component/adminVisits/view/adminAddVisitModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("add visit modal");
 
+  };
+
+  $scope.closeModal = function() {
+    ngDialog.close();
   };
 
   $scope.deleteVisit = function(visit) {
