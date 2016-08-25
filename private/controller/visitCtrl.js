@@ -4,10 +4,24 @@ var db = app.get('db');
 
 module.exports = {
   createVisit: function(req, res, next) {
-      db.visits.create_visit(function(err, response) {
+      db.visits.create_visit([
+        req.body.visitee_id,
+        req.body.visitor_id,
+        req.body.visit_date,
+        req.body.visit_time,
+        req.body.contacted,
+        req.body.confirmed,
+        req.body.cancelled,
+        req.body.impromptu
+      ],function(err, response) {
           console.log("CREATE VISIT sighting");
-          console.log(err);
-          res.send('Visit Created');
+          console.log("req body", req.body);
+          if (err) {
+            console.log("error", err);
+            res.status(400).send("error");
+          } else {
+            res.status(201).send("visit created");
+          }
       });
   },
   getVisits: function(req, res, next) {

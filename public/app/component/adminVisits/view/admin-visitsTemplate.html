@@ -27,12 +27,13 @@
               <div class="card-block">
                   <ul class="list-unstyled">
                       <li>
-                        <h4 class="card-title">Visit to: {{visit.visitee_fullName}}</h4>
+                        <h4 class="card-title">{{visit.visitee_fullName}}Visitee Full Name</h4>
                         <p class="card-text">
-                            <h5>Visit Date: {{visit.visit_date}} - {{visit.visit_time}}</h5>
-                            <p>contacted on: {{visit.contacted}}</p>
-                            <p>confirmed on: {{visit.confirmed}}</p>
-                            <p>cancelled on: {{visit.cancelled}}</p>
+                          <h5>{{visit.visit_date | date:"MMM d, y 'at' h:mma"}}</h5>
+                          <br>
+                          <p><strong>contacted:</strong>&nbsp;{{visit.contacted | date:"MMM d, y 'at' h:mma"}}</p>
+                          <p><strong>confirmed:</strong>&nbsp;{{visit.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
+                          <br>
                             <p>
                                 <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
                                     Visitors
@@ -68,13 +69,13 @@
               <div class="card-block">
                   <ul class="list-unstyled">
                       <li>
-                        <h4 class="card-title">Visit to: {{visitAll.visitee_fullName}}</h4>
+                        <h4 class="card-title">{{visitAll.visitee_fullName}}Visitee Full Name</h4>
                         <p class="card-text">
-                            <h5>Visit Date: {{visitAll.visit_date}} - {{visitAll.visit_time}}</h5>
-                            <p>contacted on: {{visitAll.contacted}}</p>
-                            <p>confirmed on: {{visitAll.confirmed}}</p>
-                            <p>cancelled on: {{visitAll.cancelled}}</p>
-                            <p>
+                            <h5>{{visitAll.visit_date | date:"MMM d, y 'at' h:mma"}}</h5>
+                            <br>
+                            <p><strong>contacted:</strong>&nbsp;{{visitAll.contacted | date:"MMM d, y 'at' h:mma"}}</p>
+                            <p><strong>confirmed:</strong>&nbsp;{{visitAll.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
+                            <br>
                               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visitAll.id}}Collapse" aria-expanded="false" aria-controls="{{visitAll.id}}Collapse">
                                   Visitors
                               </button>

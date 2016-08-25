@@ -1,1 +1,2 @@
-SELECT * from visitors;
+SELECT * from users
+WHERE visitor = true;

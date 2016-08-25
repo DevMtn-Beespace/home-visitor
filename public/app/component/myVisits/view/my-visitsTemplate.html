@@ -19,35 +19,19 @@
               <form>
                   <div class="form-group">
                       <div class="row">
-                          <div class="col-sm-12">
-                              <h4>Add Visit</h4>
-                          </div>
-                      </div>
-                      <div class="row">
                           <div class="col-xs-12">
                               <label>Visitee Name</label>
                               <br>
-                              <select class="visitee-select">
+                              <select ng-options="visitee as visitee.first_name for visitee in visitees track by visitee.visitee_id" ng-model="selectedVisitee"></select>
+                              <!-- <select class="visitee-select">
                                   <option selected>Select a Visitee</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
                                   <option value="3">Three</option>
-                              </select>
+                              </select> -->
                           </div>
                       </div>
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <label>Visitor Name(s)</label>
-                              <br>
-                              <select class="visitor-select">
-                                  <option selected>Select one or more visitors</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                              </select>
-                          </div>
-                      </div>
-                      <div class="row">
+                      <!-- <div class="row">
                           <div class="col-xs-12">
                               <label>Visit Team Name(s)</label>
                               <br>
@@ -59,40 +43,40 @@
                               </select>
                               <p>note: multiselects to choose multiple visitors, teams? Perhaps logic to display teams with subheads and the rest below?</p>
                           </div>
-                      </div>
+                      </div> -->
                       <div class="row">
                           <div class="col-sm-4">
                               <label for="date-input">Date</label>
-                              <input class="form-control" type="date" ng-model="visit.date" value="mm/dd/yyyy" id="date-input">
+                              <input class="form-control" type="date" ng-model="visit.date" placholder="mm/dd/yyyy" id="date-input">
                           </div>
                           <div class="col-sm-4">
                               <label for="time-input">Time</label>
-                              <input class="form-control" type="time" value="13:45 PM" id="time-input">
+                              <input class="form-control" type="time" ng-model="visit.time" placeholder="13:45 PM" id="time-input">
                           </div>
                           <div class="col-sm-4">
                               <div class="form-check-inline">
                                   <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox" value=""><small>Impromptu (unscheduled)</small></label>
+                                      <input class="form-check-input" type="checkbox" ng-checked="{{visit.impromptu}}" ng-model="visit.impromptu"><small>Impromptu (unscheduled)</small></label>
                               </div>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-sm-4">
                               <label for="contacted-input">Contacted</label>
-                              <input class="form-control" type="date" ng-model="visit.contacted" value="mm/dd/yyyy" id="contacted-input">
+                              <input class="form-control" type="date" ng-model="visit.contacted" placeholder="select date or type mm/dd/yyyy" id="contacted-input">
                           </div>
                           <div class="col-sm-4">
                               <label for="confirmed-input">Confirmed</label>
-                              <input class="form-control" type="date" ng-model="visit.confirmed" value="mm/dd/yyyy" id="confirmed-input">
+                              <input class="form-control" type="date" ng-model="visit.confirmed" placeholder="mm/dd/yyyy" id="confirmed-input">
                           </div>
                           <div class="col-sm-4">
                               <label for="cancelled-input">Cancelled</label>
-                              <input class="form-control" type="date" ng-model="visit.cancelled" value="mm/dd/yyyy" id="cancelled-input">
+                              <input class="form-control" type="date" ng-model="visit.cancelled" placeholder="mm/dd/yyyy" id="cancelled-input">
                           </div>
                       </div>
 
                       <br>
-                      <button type="submit" class="btn btn-success">Submit</button>
+                      <button ng-click="addVisit(visit)" class="btn btn-success">Submit</button>
                       <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
                           Close
                       </button>
@@ -114,12 +98,13 @@
             <div class="card-block">
                 <ul class="list-unstyled">
                     <li>
-                      <h4 class="card-title">Visit to: {{visit.visitee_fullName}}</h4>
+                      <h4 class="card-title">{{visit.visitee_fullName}}Visitee Full Name</h4>
                       <p class="card-text">
-                          <h5>Visit Date: {{visit.visit_date}} - {{visit.visit_time}}</h5>
-                          <p>contacted on: {{visit.contacted}}</p>
-                          <p>confirmed on: {{visit.confirmed}}</p>
-                          <p>cancelled on: {{visit.cancelled}}</p>
+                          <h5>{{visit.visit_date | date:"MMM d, y 'at' h:mma"}}</h5>
+                          <br>
+                          <p><strong>contacted:</strong>&nbsp;{{visit.contacted | date:"MMM d, y 'at' h:mma"}}</p>
+                          <p><strong>confirmed:</strong>&nbsp;{{visit.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
+                          <br>
                           <p>
                               <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
                                   Visitors

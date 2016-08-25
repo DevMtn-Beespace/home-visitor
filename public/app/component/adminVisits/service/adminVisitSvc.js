@@ -23,5 +23,18 @@ angular.module('app')
     })
   }
 
+  this.getVisitees = function(){
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/visitees'
+    })
+  }
+
+  this.getVisitors = function(){
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/visitors'
+    })
+  }
 
 });

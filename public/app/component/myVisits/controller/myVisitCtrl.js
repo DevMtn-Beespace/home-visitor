@@ -9,12 +9,32 @@ angular.module('app')
 
         $scope.getMyVisits = function() {
             myVisitSvc.getMyVisits().then(function(result) {
-                console.log(result);
+                console.log("my visits", result);
                 $scope.visits = result.data;
             });
         };
 
         $scope.getMyVisits();
+
+        $scope.getVisitees = function() {
+          myVisitSvc.getVisitees().then(function(r){
+            console.log("visitees", r);
+            $scope.visitees = r.data;
+            console.log("get visitees tirggered");
+          })
+        }
+
+        $scope.getVisitees();
+
+        // $scope.selectedVisitee = $scope.visitees[0];
+
+        $scope.addVisit = function(visit) {
+          myVisitSvc.addVisit(visit).then(function(r){
+            console.log(r);
+            ngDialog.close();
+          })
+          console.log("add visit evet triggered", visit);
+        }
 
         $scope.editVisitModal = function(visit) {
           $scope.visit = visit;
@@ -28,9 +48,12 @@ angular.module('app')
         };
 
         $scope.deleteVisit = function(visit) {
-          adminVisitSvc.deleteVisit(visit.visit_id).then(function(r){
-            $scope.getAllVisits();
+          myVisitSvc.deleteVisit(visit.visit_id).then(function(r){
+            $scope.getMyVisits();
+            console.log("Visit Deleted");
+            ngDialog.close();
             // success message and relocate
+            // do I need to pass in the whole visit or just visit_id?
           })
         };
 

@@ -44,7 +44,10 @@ angular.module('app')
       console.log("user_id", user.user_id);
       console.log("edit user from controller");
       ngDialog.close();
-      $location.path('/admin-users');
+      // need a way to refreseh the state.
+      // $state.reload();
+      // $state.go('admin-users', {}, { reload: true }); 
+
     })
   }
 

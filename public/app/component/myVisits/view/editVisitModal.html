@@ -48,11 +48,11 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="date-input">Date</label>
-                        <input class="form-control" type="date" ng-model="visit.date" value="mm/dd/yyyy" id="date-input">
+                        <input class="form-control" type="date" ng-model="visit.date" placeholder="mm/dd/yyyy" id="date-input">
                     </div>
                     <div class="col-sm-4">
                         <label for="time-input">Time</label>
-                        <input class="form-control" type="time" value="13:45 PM" id="time-input">
+                        <input class="form-control" type="time" placeholder="13:45 PM" id="time-input">
                     </div>
                     <div class="col-sm-4">
                         <div class="form-check-inline">
@@ -78,7 +78,6 @@
 
                 <br>
                 <button type="submit" class="btn btn-success">Submit</button>
-
                 <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visit)">Delete Visit</button>
         </form>
         </div>

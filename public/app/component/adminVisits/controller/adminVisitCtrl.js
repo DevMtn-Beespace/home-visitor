@@ -47,4 +47,16 @@ angular.module('app')
     })
   };
 
+  $scope.getVisitors = function() {
+    adminVisitSvc.getVisitors().then(function(r){
+      console.log("visitors", r);
+      $scope.visitors = r.data;
+      console.log("get visitors tirggered");
+    })
+  }
+
+  $scope.getVisitors();
+
+  // $scope.selectedVisitor = $scope.visitors[0];
+
 });

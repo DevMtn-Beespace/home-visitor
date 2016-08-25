@@ -24,12 +24,14 @@
                     <div class="col-xs-12">
                         <label>Visitor Name(s)</label>
                         <br>
-                        <select class="visitor-select">
+                        <select ng-options="visitor as visitor.first_name for visitor in visitors track by visitor.visitor_id" ng-model="selectedVisitor"></select>
+
+                        <!-- <select class="visitor-select">
                             <option selected>Select one or more visitors</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
-                        </select>
+                        </select> -->
                     </div>
                 </div>
                 <div class="row">
