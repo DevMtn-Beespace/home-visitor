@@ -2,153 +2,18 @@
 <h1 class="text-xs-center">Admin Teams</h1>
 
 <p class="text-xs-center">
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myTeamCollapse" aria-expanded="false" aria-controls="myTeamCollapse">
+    <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myTeamCollapse" aria-expanded="false" aria-controls="myTeamCollapse">
         My Teams
-    </button>
+    </button> -->
     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#allTeamsCollapse" aria-expanded="false" aria-controls="allTeamsCollapse">
         All Teams
     </button>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#addTeamCollapse" aria-expanded="false" aria-controls="addTeamCollapse">
-        Add Teams
+    <button class="btn btn-primary" ng-click="addTeamModal(team)">
+        Add Team
     </button>
 </p>
 
 <section class="adminTeam">
-
-    <div class="collapse" id="editTeamCollapse">
-        <div class="card card-block card-outline-primary">
-            <h3 class="card-header bg-inverse" style="color:white">Edit Team<button class="btn btn-danger pull-xs-right">Delete</button></h3>
-            <div class="container">
-                <form>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Name</label>
-                            <input type="text" class="form-control" placeholder="Team Name" ng-model="team.name" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Leader</label>
-                            <input type="text" class="form-control" placeholder="Team Leader" ng-model="team.leader" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Second</label>
-                            <input type="text" class="form-control" placeholder="Team Second" ng-model="team.second" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Member</label>
-                            <input type="text" class="form-control" placeholder="Team Member" ng-model="team.member" />
-                        </div>
-                    </div>
-                    <!-- <div class="row">
-                    <div class="col-xs-12">
-                        <label>Visitor Name(s)</label>
-                        <br>
-                        <select class="visitor-select">
-                            <option selected>Select one or more visitors</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                </div> -->
-                    <br>
-                    <button type="submit" class="btn btn-success">Submit</button>
-                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#editTeamCollapse" aria-expanded="false" aria-controls="editTeamCollapse">
-                        Close
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="collapse" id="addTeamCollapse">
-        <div class="card card-block card-outline-primary">
-            <h3 class="card-header bg-inverse" style="color:white">Add Team</h3>
-            <div class="container">
-                <form>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Name</label>
-                            <input type="text" class="form-control" placeholder="Team Name" ng-model="team.name" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Leader</label>
-                            <input type="text" class="form-control" placeholder="Team Leader" ng-model="team.leader" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Second</label>
-                            <input type="text" class="form-control" placeholder="Team Second" ng-model="team.second" />
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <label>Team Member</label>
-                            <input type="text" class="form-control" placeholder="Team Member" ng-model="team.member" />
-                        </div>
-                    </div>
-                    <!-- <div class="row">
-                    <div class="col-xs-12">
-                        <label>Visitor Name(s)</label>
-                        <br>
-                        <select class="visitor-select">
-                            <option selected>Select one or more visitors</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                    </div>
-                </div> -->
-                    <br>
-                    <button type="submit" class="btn btn-success" ng-click="addteam()">Submit</button>
-                    <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addTeamCollapse" aria-expanded="false" aria-controls="addTeamCollapse">
-                        Close
-                    </button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="collapse" id="myTeamCollapse">
-        <div class="card card-block">
-            <h3 class="card-header">My Teams</h3>
-            <div class="card card-outline-primary" ng-repeat="team in teams">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-block">
-                    <ul class="list-unstyled">
-                        <li>
-                            <h4 class="card-title">{{team.team_name}}</h4>
-                            <p class="card-text">
-                                <h5>Team Leader: {{team.team_leader}}</h5>
-                                <h5>Team Second: {{team.team_second}}</h5>
-                                <p>Next Visit: date as link here</p>
-                                <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.id}}Collapse" aria-expanded="false" aria-controls="{{team.id}}Collapse">
-                                        Members
-                                    </button>
-                                </p>
-                            </p>
-                            <div class="collapse" id="{{team.id}}Collapse">
-                                <div class="card card-block">
-                                    <ul>
-                                        <li ng-repeat="name in members"><small>{{name}}</small></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <div class="collapse in" id="allTeamsCollapse">
         <div class="card card-block">
@@ -158,7 +23,6 @@
             </div>
             <h3 class="card-header">All Teams</h3>
             <div class="card card-outline-primary" ng-repeat="team in teams | filter:teamText | orderBy:'team.team_leader'">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
                 <div class="card-block">
                     <ul class="list-unstyled">
                         <li>
@@ -167,19 +31,20 @@
                                 <h5>Team Leader: {{team.team_leader}}</h5>
                                 <h5>Team Second: {{team.team_second}}</h5>
                                 <p>Next Visit: date as link here</p>
+                                <!-- <p>{{team}}</p> -->
                                 <p>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.id}}adminCollapse" aria-expanded="false" aria-controls="{{team.id}}adminCollapse">
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.team_id}}adminCollapse" aria-expanded="false" aria-controls="{{team.team_id}}adminCollapse">
                                         Members
                                     </button>
-                                    <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#editTeamCollapse" aria-expanded="false" aria-controls="#editTeamCollapse">
+                                    <button class="btn btn-success pull-xs-right" ng-click="editTeamModal(team)">
                                         Edit Team
                                     </button>
                                 </p>
                             </p>
-                            <div class="collapse" id="{{team.id}}adminCollapse">
+                            <div class="collapse" id="{{team.team_id}}adminCollapse">
                                 <div class="card card-block">
                                     <ul>
-                                        <li ng-repeat="name in members"><small>{{name}}</small></li>
+                                        <li><small>{{team.members}}</small></li>
                                     </ul>
                                 </div>
                             </div>

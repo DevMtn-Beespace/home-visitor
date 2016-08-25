@@ -25,22 +25,16 @@ angular.module('app')
     });
   };
 
-  $scope.deleteUser = function(user) {
-    adminUserSvc.deleteUser(user.user_id).then(function(r){
-      $scope.getAllUsers();
-    })
-  };
-
-  $scope.editUserModal = function(user) {
+  $scope.addUserModal = function(user) {
     $scope.user = user;
-    ngDialog.open({ template: './app/component/adminUsers/view/adminEditUserModal.html', className: 'ngdialog-theme-default', scope: $scope });
-    console.log("edit user modal", user);
+    ngDialog.open({ template: './app/component/adminUsers/view/adminAddUserModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("add user modal", user);
 
   };
 
-  $scope.closeEditModal = function() {
+  $scope.closeModal = function() {
     ngDialog.close();
-    console.log("close edit user modal");
+    console.log("close modal");
 
   };
 
@@ -53,6 +47,19 @@ angular.module('app')
       $location.path('/admin-users');
     })
   }
+
+  $scope.editUserModal = function(user) {
+    $scope.user = user;
+    ngDialog.open({ template: './app/component/adminUsers/view/adminEditUserModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("edit user modal", user);
+
+  };
+
+  $scope.deleteUser = function(user) {
+    adminUserSvc.deleteUser(user.user_id).then(function(r){
+      $scope.getAllUsers();
+    })
+  };
 
 
   // fake user team data for formatting

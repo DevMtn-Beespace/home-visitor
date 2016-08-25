@@ -15,12 +15,12 @@
                         <h5>Team Second: {{team.team_second}}</h5>
                         <p>Next Visit: date as link here</p>
                         <p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.id}}Collapse" aria-expanded="false" aria-controls="{{team.id}}Collapse">
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.team_id}}Collapse" aria-expanded="false" aria-controls="{{team.team_id}}Collapse">
                                 Members
                             </button>
                         </p>
                     </p>
-                    <div class="collapse" id="{{team.id}}Collapse">
+                    <div class="collapse" id="{{team.team_id}}Collapse">
                         <div class="card card-block">
                             <ul>
                                 <li ng-repeat="name in members"><small>{{name}}</small></li>

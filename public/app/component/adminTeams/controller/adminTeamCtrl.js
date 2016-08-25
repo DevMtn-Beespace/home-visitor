@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('adminTeamCtrl', function($scope, $auth, $location, adminTeamSvc){
+.controller('adminTeamCtrl', function($scope, $auth, $location, ngDialog, adminTeamSvc){
 
   $scope.checkloggedIn = function() {
         if(!($auth.getToken())) {
@@ -11,12 +11,18 @@ angular.module('app')
     adminTeamSvc.getAllTeams().then(function(result){
       console.log(result);
       $scope.teams = result.data;
+      console.log("$scope.teams", $scope.teams);
+        // need logic to get team members
+
+
+        // $scope.teams[0].members = [{"name":"name1","name":"name2","name":"name3","name":"name4","name":"name5","name":"name6"}];
+        // $scope.teams[1].members = [{"name":"next1","name":"next2","name":"next3","name":"next4","name":"next5"}];
+        // $scope.teams[2].members = ["Dylan", "Aaron", "James", "Diane", "Peter", "Jason", "Phil", "Jenny"];
+
+
     });
   };
   $scope.getAllTeams();
-
-  $scope.members = ["name1","name2","name3","name4","name5","name6"];
-  // need logic to get team members
 
   $scope.addTeam = function() {
     adminTeamSvc.addTeam().then(function(result) {
@@ -28,7 +34,29 @@ angular.module('app')
     });
   };
 
-  // be sure to invoke add Team!
+  $scope.editTeamModal = function(team) {
+    $scope.team = team;
+    ngDialog.open({ template: './app/component/adminTeams/view/adminEditTeamModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("edit team modal", user);
+  };
+
+  $scope.closeEditModal = function() {
+    ngDialog.close();
+    console.log("close edit team modal");
+
+  };
+
+  $scope.addTeamModal = function(team) {
+    $scope.team = team;
+    ngDialog.open({ template: './app/component/adminTeams/view/adminAddTeamModal.html', className: 'ngdialog-theme-default', scope: $scope });
+    console.log("add team modal", team);
+  };
+
+  $scope.closeAddModal = function() {
+    ngDialog.close();
+    console.log("close add team modal");
+
+  };
 
   // $scope.teams = [
   //   {"id": 1,
