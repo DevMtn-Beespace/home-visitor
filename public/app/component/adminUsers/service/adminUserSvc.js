@@ -8,7 +8,7 @@ angular.module('app')
   }
 
 
-this.addUser = function($http){
+this.addUser = function(){
   console.log("got here, add user");
   return $http({
     method: 'POST',

@@ -5,27 +5,29 @@
             <div class="row">
                 <div class="col-xs-12">
                     <label>Team Name</label>
-                    <input type="text" class="form-control" placeholder="Team Name" ng-model="team.name" />
+                    <input type="text" class="form-control" placeholder="Team Name" ng-model="team.team_name" />
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
                     <label>Team Leader</label>
-                    <input type="text" class="form-control" placeholder="Team Leader" ng-model="team.leader" />
+                    <br>
+                    <select ng-options="user as user.last_name for user in users track by user.user_id" ng-model="team.team_leader"></select>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12">
                     <label>Team Second</label>
-                    <input type="text" class="form-control" placeholder="Team Second" ng-model="team.second" />
+                    <br>
+                    <select ng-options="user as user.last_name for user in users track by user.user_id" ng-model="team.team_second"></select>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-xs-12">
                     <label>Team Member</label>
                     <input type="text" class="form-control" placeholder="Team Member" ng-model="team.member" />
                 </div>
-            </div>
+            </div> -->
             <!-- <div class="row">
             <div class="col-xs-12">
                 <label>Visitor Name(s)</label>
@@ -39,7 +41,7 @@
             </div>
         </div> -->
             <br>
-            <button type="submit" class="btn btn-success" ng-click="addteam()">Submit</button>
+            <button type="submit" class="btn btn-success" ng-click="addTeam(team)">Submit</button>
         </form>
     </div>
 </div>

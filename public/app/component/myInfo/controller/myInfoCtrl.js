@@ -11,9 +11,7 @@ angular.module('app')
             console.log("getMyteams from controller");
         };
 
-        console.log(window.localStorage);
         $scope.user = JSON.parse(window.localStorage.getItem('user'));
-        console.log("$scope.user", $scope.user);
 
         $scope.editUser = function(user) {
             console.log("edit user from myinfo");
@@ -21,7 +19,6 @@ angular.module('app')
                 // console.log("user_id", user.user_id);
                 // console.log("edit user from controller");
                 $scope.getMyInfo(user.user_id);
-                $state.reload();
             });
         }
 
@@ -30,8 +27,9 @@ angular.module('app')
                 localStorage.removeItem('user');
                 console.log("getting my info", r);
                 window.localStorage.setItem('user', JSON.stringify(r.data[0]));
+                $scope.user = JSON.parse(window.localStorage.getItem("user"));
             });
-        }
+        };
 
         $scope.teams = [{
                 "id": 1,

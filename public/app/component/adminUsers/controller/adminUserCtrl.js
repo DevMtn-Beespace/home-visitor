@@ -10,6 +10,9 @@ angular.module('app')
   $scope.getAllUsers = function() {
     adminUserSvc.getAllUsers().then(function(result){
       console.log(result);
+      for (var i =0; i <result.data.length; i++) {
+        result.data[i].password = "";
+      }
       $scope.users = result.data;
     });
   };
@@ -43,10 +46,11 @@ angular.module('app')
       console.log("response", r);
       console.log("user_id", user.user_id);
       console.log("edit user from controller");
+      $scope.user.password = "";
       ngDialog.close();
       // need a way to refreseh the state.
       // $state.reload();
-      // $state.go('admin-users', {}, { reload: true }); 
+      // $state.go('admin-users', {}, { reload: true });
 
     })
   }

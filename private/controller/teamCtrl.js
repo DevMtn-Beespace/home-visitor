@@ -4,13 +4,21 @@ var db = app.get('db');
 
 module.exports = {
   createTeam: function(req, res, next) {
-      db.teams.create_team(req.body.team_name, req.body.team_leader, req.body.team_second, function(err, response) {
-          console.log("CREATE team sighting");
+    console.log(req.body);
+      db.teams.create_team(req.body.team_name, req.body.team_leader.user_id, req.body.team_second.user_id, function(err, response) {
+          console.log("CREATE team sighting", response);
+          // use team id to insert into user_teams.
           if (err) {
             console.log(err);
             res.status(400).send("Error");
           } else {
-            // console.log(response);
+            db.teams.create_team_members(req.body.team_leader.user_id, response[0].team_id, function(err, r){
+              console.log(err, r);
+            });
+            db.teams.create_team_members(req.body.team_second.user_id, response[0].team_id, function(err, r){
+              console.log(err, r);
+            });
+            // for addingmembers, loop to do same line for each member
             res.status(201).send("Team Created");
           }
       });
@@ -22,6 +30,7 @@ module.exports = {
             console.log(err);
             res.status(400).send("Error");
           } else {
+            
           // console.log(response);
           res.json(response);
           }

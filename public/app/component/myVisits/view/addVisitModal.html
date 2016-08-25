@@ -7,7 +7,7 @@
                     <div class="col-xs-12">
                         <label>Visitee Name</label>
                         <br>
-                        <select ng-options="visitee as visitee.first_name for visitee in visitees track by visitee.visitee_id" ng-model="selectedVisitee"></select>
+                        <select ng-options="visitee as visitee.last_name for visitee in visitees track by visitee.visitee_id" ng-model="selectedVisitee"></select>
                         <!-- <select class="visitee-select">
                             <option selected>Select a Visitee</option>
                             <option value="1">One</option>
