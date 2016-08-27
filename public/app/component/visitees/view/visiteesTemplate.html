@@ -12,105 +12,14 @@
 
 <section class="visitees">
 
-  <div class="collapse" id="addVisitCollapse">
-      <div class="card card-block card-outline-primary">
-          <h3 class="card-header bg-inverse" style="color:white">Add Visit</h3>
-          <div class="container">
-              <form>
-                  <div class="form-group">
-                      <div class="row">
-                          <div class="col-sm-12">
-                              <h4>Add Visit</h4>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <label>Visitee Name</label>
-                              <br>
-                              <select class="visitee-select">
-                                  <option selected>Select a Visitee</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                              </select>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <label>Visitor Name(s)</label>
-                              <br>
-                              <select class="visitor-select">
-                                  <option selected>Select one or more visitors</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                              </select>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-xs-12">
-                              <label>Visit Team Name(s)</label>
-                              <br>
-                              <select class="visitor-select">
-                                  <option selected>Or, select one or more Visit Teams</option>
-                                  <option value="1">One</option>
-                                  <option value="2">Two</option>
-                                  <option value="3">Three</option>
-                              </select>
-                              <p>note: multiselects to choose multiple visitors, teams? Perhaps logic to display teams with subheads and the rest below?</p>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <label for="date-input">Date</label>
-                              <input class="form-control" type="date" ng-model="visit.date" value="mm/dd/yyyy" id="date-input">
-                          </div>
-                          <div class="col-sm-4">
-                              <label for="time-input">Time</label>
-                              <input class="form-control" type="time" value="13:45 PM" id="time-input">
-                          </div>
-                          <div class="col-sm-4">
-                              <div class="form-check-inline">
-                                  <label class="form-check-label">
-                                      <input class="form-check-input" type="checkbox" value=""><small>Impromptu (unscheduled)</small></label>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-sm-4">
-                              <label for="contacted-input">Contacted</label>
-                              <input class="form-control" type="date" ng-model="visit.contacted" value="mm/dd/yyyy" id="contacted-input">
-                          </div>
-                          <div class="col-sm-4">
-                              <label for="confirmed-input">Confirmed</label>
-                              <input class="form-control" type="date" ng-model="visit.confirmed" value="mm/dd/yyyy" id="confirmed-input">
-                          </div>
-                          <div class="col-sm-4">
-                              <label for="cancelled-input">Cancelled</label>
-                              <input class="form-control" type="date" ng-model="visit.cancelled" value="mm/dd/yyyy" id="cancelled-input">
-                          </div>
-                      </div>
-
-                      <br>
-                      <button type="submit" class="btn btn-success">Submit</button>
-                      <button class="btn btn-primary pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="addVisitCollapse">
-                          Close
-                      </button>
-              </form>
-              </div>
-          </div>
-      </div>
-  </div>
-
   <div class="collapse" id="visiteesCollapse">
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visitees:</strong></label>
-              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="userText" />
+              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="userTeamText" />
           </div>
           <h3 class="card-header">All Visitees</h3>
           <div class="card card-outline-primary" ng-repeat="user in users | filter:userText | orderBy:'user.last_name'">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
               <div class="card-block">
                   <ul class="list-unstyled">
                       <li>
@@ -123,29 +32,27 @@
                               <p>Phone: <a href="tel:{{user.phone}}">{{user.phone}}</a>
                                 <br>Email: <a href="mailto:{{user.email}}">{{user.email}}</a>
                               </p>
-                              <p>Region: {{user.region}}</p>
-                              <p>
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Member</small>&nbsp;
-                                <!-- <i class="fa fa-check" aria-hidden="true"></i><small>Advocate</small>&nbsp; -->
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Visitor</small>&nbsp;
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Visitee</small>&nbsp;
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Admin</small>&nbsp;
-                              <p>
-                                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}visiteesTeamCollapse" aria-expanded="false" aria-controls="{{user.id}}visiteesTeamCollapse">
-                                      Visiting Teams
-                                  </button>
-                                  <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="#addVisitCollapse">
-                                      Add Visit
-                                  </button>
+
+                              <!-- <p>
+                                <span>Admin: {{user.admin}}</span><br>
+                                <span>Visitor: {{user.visitor}}</span><br>
+                                <span>Visitee: {{user.visitee}}</span><br>
+                              <p> -->
+                                <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}teamsCollapse" aria-expanded="false" aria-controls="{{user.id}}teamsCollapse">
+                                    Visiting Teams
+                                </button> -->
+                                <button class="btn btn-success pull-xs-right" ng-click="addVisitModal(user)">
+                                    Add Visit
+                                </button>
                               </p>
-                          </p>
-                          <div class="collapse" id="{{user.id}}visiteesTeamCollapse">
+                          <!-- </p>
+                          <div class="collapse" id="{{user.id}}adminCollapse">
                               <div class="card card-block">
                                   <ul>
                                       <li ng-repeat="team in teams"><small>{{team.team_name}}</small></li>
                                   </ul>
                               </div>
-                          </div>
+                          </div> -->
                       </li>
                   </ul>
               </div>
@@ -162,11 +69,10 @@
           </div>
           <h3 class="card-header">My Team's Visitees</h3>
           <div class="card card-outline-primary" ng-repeat="userTeam in userTeams | filter:userTeamText | orderBy:'userTeam.last_name'">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
               <div class="card-block">
                   <ul class="list-unstyled">
                       <li>
-                          <span class="card-title"><h4>{{userTeam.first_name}} {{userTeam.last_name}}</h4><small>(username: {{userTeam.userTeamname}})</small></span>
+                          <span class="card-title"><h4>{{userTeam.first_name}} {{userTeam.last_name}}</h4><small>(username: {{userTeam.username}})</small></span>
                           <p class="card-text">
                               <p>{{userTeam.address}}
                               <br>{{userTeam.city}}, {{userTeam.state}} {{userTeam.zip}}
@@ -175,29 +81,27 @@
                               <p>Phone: <a href="tel:{{userTeam.phone}}">{{userTeam.phone}}</a>
                                 <br>Email: <a href="mailto:{{userTeam.email}}">{{userTeam.email}}</a>
                               </p>
-                              <p>Region: {{userTeam.region}}</p>
-                              <p>
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Member</small>&nbsp;
-                                <!-- <i class="fa fa-check" aria-hidden="true"></i><small>Advocate</small>&nbsp; -->
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Visitor</small>&nbsp;
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Visitee</small>&nbsp;
-                                <i class="fa fa-check" aria-hidden="true"></i><small>Admin</small>&nbsp;
-                              <p>
-                                  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}teamsCollapse" aria-expanded="false" aria-controls="{{user.id}}teamsCollapse">
-                                      Visiting Teams
-                                  </button>
-                                  <button class="btn btn-danger pull-xs-right" type="button" data-toggle="collapse" data-target="#addVisitCollapse" aria-expanded="false" aria-controls="#addVisitCollapse">
-                                      Add Visit
-                                  </button>
+
+                              <!-- <p>
+                                <span>Admin: {{userTeam.admin}}</span><br>
+                                <span>Visitor: {{userTeam.visitor}}</span><br>
+                                <span>Visitee: {{userTeam.visitee}}</span><br>
+                              <p> -->
+                                <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{userTeam.id}}teamsCollapse" aria-expanded="false" aria-controls="{{userTeam.id}}teamsCollapse">
+                                    Visiting Teams
+                                </button> -->
+                                <button class="btn btn-success pull-xs-right" ng-click="addVisitModal(user)">
+                                    Add Visit
+                                </button>
                               </p>
-                          </p>
-                          <div class="collapse" id="{{user.id}}teamsCollapse">
+                          <!-- </p>
+                          <div class="collapse" id="{{userTeam.id}}adminCollapse">
                               <div class="card card-block">
                                   <ul>
                                       <li ng-repeat="team in teams"><small>{{team.team_name}}</small></li>
                                   </ul>
                               </div>
-                          </div>
+                          </div> -->
                       </li>
                   </ul>
               </div>

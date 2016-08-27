@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('visiteeCtrl', function($scope, $auth, $location, visiteeSvc) {
+    .controller('visiteeCtrl', function($scope, $auth, $location, $state, ngDialog, visiteeSvc) {
 
         $scope.checkloggedIn = function() {
             if (!($auth.getToken())) {
@@ -24,6 +24,19 @@ angular.module('app')
         };
 
         $scope.getTeamVisitees();
+
+        $scope.addVisitModal = function(visit) {
+          $scope.visit = visit;
+          ngDialog.open({ template: './app/component/visitees/view/addVisitModal.html', className: 'ngdialog-theme-default', scope: $scope });
+          console.log("add visit modal", visit);
+
+        };
+
+        $scope.closeModal = function() {
+          ngDialog.close();
+          console.log("close modal");
+
+        };
 
 
         $scope.teams = [
