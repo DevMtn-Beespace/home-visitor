@@ -13,7 +13,7 @@ module.exports = {
                 algorithm: 'sha256'
             });
         } else {
-            // otherwise usign satellizer
+            // otherwise using satellizer
             hashPassword = null;
         }
         db.register.checkForUser([req.body.username, req.body.email], function(err, response) {

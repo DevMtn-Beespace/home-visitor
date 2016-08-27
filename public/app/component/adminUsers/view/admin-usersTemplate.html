@@ -35,20 +35,9 @@
                                 </p>
 
                                 <p>
-                                  <div class="form-group">
-                                      <div class="form-check-inline">
-                                          <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.visitor}}" disabled="true"><small>Visitor</small></label>
-                                      </div>
-                                      <div class="form-check-inline">
-                                          <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.visitee}}" disabled="true"><small>Visitee</small></label>
-                                      </div>
-                                      <div class="form-check-inline">
-                                          <label class="form-check-label">
-                                              <input class="form-check-input" type="checkbox" ng-checked="{{user.admin}}" disabled="true"><small>Admin</small></label>
-                                      </div>
-                                  </div>
+                                  <span>Admin: {{user.admin}}</span><br>
+                                  <span>Visitor: {{user.visitor}}</span><br>
+                                  <span>Visitee: {{user.visitee}}</span><br>
                                 <p>
                                     <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}adminCollapse" aria-expanded="false" aria-controls="{{user.id}}adminCollapse">
                                         Teams

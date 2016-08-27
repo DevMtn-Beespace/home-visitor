@@ -4,25 +4,34 @@ var db = app.get('db');
 
 module.exports = {
   createVisit: function(req, res, next) {
-      db.visits.create_visit([
-        req.body.visitee_id,
-        req.body.visitor_id,
-        req.body.visit_date,
-        req.body.visit_time,
-        req.body.contacted,
-        req.body.confirmed,
-        req.body.cancelled,
-        req.body.impromptu
-      ],function(err, response) {
-          console.log("CREATE VISIT sighting");
-          console.log("req body", req.body);
-          if (err) {
-            console.log("error", err);
-            res.status(400).send("error");
-          } else {
-            res.status(201).send("visit created");
-          }
-      });
+    var visitee_fullname;
+    // get fullnamem from users table
+    console.log("req params id create visit", req.body.visitee_id);
+    db.users.get_user_by_id(req.body.visitee_id, function(err, r){
+      console.log("r", r);
+      visitee_fullname = (r[0].first_name + ' ' + r[0].last_name);
+      console.log("fullname" ,visitee_fullname);
+        db.visits.create_visit([
+          req.body.visitee_id,
+          visitee_fullname,
+          req.body.userId,
+          req.body.visit_date,
+          req.body.visit_time,
+          req.body.contacted,
+          req.body.confirmed,
+          req.body.impromptu
+        ],function(err, response) {
+            console.log("CREATE VISIT sighting");
+            console.log("req body", req.body);
+            if (err) {
+              console.log("error", err);
+              res.status(400).send("error");
+            } else {
+              res.status(201).send("visit created");
+            }
+        });
+    })
+
   },
   getVisits: function(req, res, next) {
       db.visits.get_visits(function(err, response) {
@@ -44,6 +53,19 @@ module.exports = {
             }
         });
   },
+  getVisitByUserId: function(req, res, next) {
+    console.log("GET VISIT By USER ID sighting", req.params.id);
+    db.visits.get_visit_by_user_id(req.params.id, function(err, response) {
+            if (err) {
+                console.log(err);
+                console.log('Invalid USER ID', req.params.id);
+                res.send(err);
+            } else {
+                console.log('success');
+                res.send(response)
+            }
+        });
+  },
   updateVisit: function(req, res, next) {
       if (req.params.id) {
         db.visits.update_visit(
@@ -54,11 +76,7 @@ module.exports = {
             req.body.visit_time,
             req.body.contacted,
             req.body.confirmed,
-            req.body.cancelled,
             req.body.impromptu,
-            req.body.visitor_note,
-            req.body.visitee_note,
-            req.body.admin_note,
             function(err, response) {
               console.log("UPDATE VISIT sighting");
               console.log(err);

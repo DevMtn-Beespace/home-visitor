@@ -12,6 +12,7 @@ angular.module('app')
         $scope.getMyTeams = function() {
             console.log("getMyteams from controller");
         };
+        // get users teams in progress
 
         $scope.getMyInfo = function(userId) {
             myInfoSvc.getMyInfo(userId).then(function(r) {
@@ -42,6 +43,7 @@ angular.module('app')
               console.log("edit user from controller");
               $scope.user.password = "";
               ngDialog.close();
+              $state.reload();
             });
         }
 

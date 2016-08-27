@@ -1,5 +1,5 @@
 angular.module('app')
-.controller('adminUserCtrl', function($scope, $auth, $location, ngDialog, adminUserSvc){
+.controller('adminUserCtrl', function($scope, $auth, $location, $state, ngDialog, adminUserSvc){
 
   $scope.checkloggedIn = function() {
         if(!($auth.getToken())) {
@@ -18,13 +18,16 @@ angular.module('app')
   };
   $scope.getAllUsers();
 
-  $scope.addUser = function() {
-    adminUserSvc.addUser().then(function(result) {
+  $scope.addUser = function(user) {
+    adminUserSvc.addUser(user).then(function(err, result) {
       if (err) {
         console.log(err);
       } else {
-        console.log(result);
+        console.log("admin add user event triggered", user);
+        console.log("add user result", result);
       };
+      ngDialog.close();
+      $state.reload();
     });
   };
 
@@ -48,10 +51,7 @@ angular.module('app')
       console.log("edit user from controller");
       $scope.user.password = "";
       ngDialog.close();
-      // need a way to refreseh the state.
-      // $state.reload();
-      // $state.go('admin-users', {}, { reload: true });
-
+      $state.reload();
     })
   }
 

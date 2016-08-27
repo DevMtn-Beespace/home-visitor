@@ -1,5 +1,7 @@
 INSERT into USERS
 (
+  username,
+  password,
   first_name,
   last_name,
   address,
@@ -8,37 +10,23 @@ INSERT into USERS
   zip,
   phone,
   email,
-  region,
-  member,
   admin,
-  advocate,
-  google_id,
-  facebook_id,
-  visitee_id,
-  visitor_id,
-  advocate_id,
-  password,
-  username
+  visitee,
+  visitor
 )
 VALUES
 (
-  'Shannon',
-  'Lecke',
-  '320 Richard Road',
-  'Yardley',
-  'PA',
-  '19067',
-  '215-736-0502',
-  'slecke@beespace.com',
-  'Philadelphia',
-  true,
-  true,
-  true,
-  null,
-  null,
-  1,
-  null,
-  null,
-  null,
-  null
+  $1,
+  $2,
+  $3,
+  $4,
+  $5,
+  $6,
+  $7,
+  $8,
+  $9,
+  $10,
+  $11,
+  $12,
+  $13
 );

@@ -1,12 +1,12 @@
 INSERT into VISITS
 (
   visitee_id,
+  visitee_fullname,
   visitor_id,
   visit_date,
   visit_time,
   contacted,
   confirmed,
-  cancelled,
   impromptu
 )
 VALUES

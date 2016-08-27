@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('myVisitCtrl', function($scope, $auth, $location, ngDialog, myVisitSvc) {
+    .controller('myVisitCtrl', function($scope, $auth, $location, $state, ngDialog, myVisitSvc) {
 
         $scope.checkloggedIn = function() {
             if (!($auth.getToken())) {
@@ -7,31 +7,54 @@ angular.module('app')
             }
         }();
 
-        $scope.getMyVisits = function() {
-            myVisitSvc.getMyVisits().then(function(result) {
-                console.log("my visits", result);
-                $scope.visits = result.data;
+        $scope.user = JSON.parse(window.localStorage.getItem('user'));
+
+        $scope.getMyInfo = function(userId) {
+          console.log("getMyInfo launched in controller", userId);
+            myVisitSvc.getMyInfo(userId).then(function(r) {
+                localStorage.removeItem('user');
+                console.log("getting my info", r);
+                window.localStorage.setItem('user', JSON.stringify(r.data[0]));
+                $scope.user = JSON.parse(window.localStorage.getItem("user"));
             });
         };
 
-        $scope.getMyVisits();
+        $scope.getMyInfo($scope.user.user_id);
+
+
+        $scope.getMyVisits = function(userId) {
+            myVisitSvc.getMyVisits(userId).then(function(result) {
+                console.log("my visits", result);
+                $scope.visits = result.data;
+                console.log("scope visits", $scope.visits);
+            });
+
+        };
+
+        $scope.getMyVisits($scope.user.user_id);
 
         $scope.getVisitees = function() {
           myVisitSvc.getVisitees().then(function(r){
-            console.log("visitees", r);
             $scope.visitees = r.data;
-            console.log("get visitees tirggered");
+            for (var i = 0; i < $scope.visitees.length; i++) {
+              $scope.visitees[i].fullName = ($scope.visitees[i].first_name + ' ' + $scope.visitees[i].last_name);
+              console.log("fullname", $scope.visitees[i].fullName);
+            }
           })
         }
 
         $scope.getVisitees();
 
         // $scope.selectedVisitee = $scope.visitees[0];
+        var userId = $scope.user.user_id;
 
         $scope.addVisit = function(visit) {
-          myVisitSvc.addVisit(visit).then(function(r){
-            console.log(r);
+          console.log("visit", visit);
+          myVisitSvc.addVisit(visit, userId).then(function(r){
+            console.log("response" ,r);
             ngDialog.close();
+            $state.reload();
+
           })
           console.log("add visit evet triggered", visit);
         }
@@ -59,6 +82,7 @@ angular.module('app')
             $scope.getMyVisits();
             console.log("Visit Deleted");
             ngDialog.close();
+            $state.reload();
             // success message and relocate
             // do I need to pass in the whole visit or just visit_id?
           })

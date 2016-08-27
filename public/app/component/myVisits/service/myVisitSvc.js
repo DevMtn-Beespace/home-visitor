@@ -1,16 +1,34 @@
 angular.module('app')
 .service('myVisitSvc', function($http){
 
-  this.getMyVisits = function(){
-    // need logic to get only the current user's teams
-
+  this.getMyInfo = function(userId) {
+    console.log("get my info service", userId);
     return $http({
       method: 'GET',
-      url: 'http://localhost:3000/api/visits'
+      url: 'http://localhost:3000/api/users/' + userId,
+    })
+  }
+
+  this.getMyVisits = function(userId){
+    // need logic to get only the current user's visits
+    console.log("get my visits service", userId);
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/visits/user/' + userId,
     });
   }
 
-  this.addVisit = function(data){
+  this.getVisiteeById = function(visiteeId) {
+    console.log("get the visitee for a visit", visiteeId);
+    return $http({
+      method: 'GET',
+      url: 'http://localhost:3000/api/visitees/' + visiteeId,
+    });
+  }
+
+  this.addVisit = function(data, userId){
+    data.userId = userId;
+    console.log("service", data);
     return $http({
       method: 'POST',
       url: 'http://localhost:3000/api/visits',

@@ -8,11 +8,12 @@ angular.module('app')
   }
 
 
-this.addUser = function(){
+this.addUser = function(data){
   console.log("got here, add user");
   return $http({
     method: 'POST',
-    url: 'http://localhost:3000/api/users'
+    url: 'http://localhost:3000/api/users',
+    data: data
   })
 }
 

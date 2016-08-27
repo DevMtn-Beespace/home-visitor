@@ -19,7 +19,7 @@ angular.module('app')
   }
 
   this.getMyInfo = function(userId) {
-    // console.log("get my info");
+    console.log("get my info", userId);
     return $http({
       method: 'GET',
       url: 'http://localhost:3000/api/users/' + userId,

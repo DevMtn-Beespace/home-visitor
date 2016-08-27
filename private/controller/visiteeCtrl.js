@@ -14,7 +14,7 @@ module.exports = {
       db.visitees.get_visitees(function(err, response) {
           console.log("GET ALL VISITEES sighting");
           console.log(err);
-          console.log(response);
+          // console.log(response);
           res.json(response);
       });
   },

@@ -38,6 +38,7 @@ app.delete('/api/users/:id', userCtrl.deleteUser);
 // VISITS
 app.get('/api/visits', visitCtrl.getVisits);
 app.get('/api/visits/:id', visitCtrl.getVisitById);
+app.get('/api/visits/user/:id', visitCtrl.getVisitByUserId);
 app.put('/api/visits/:id', visitCtrl.updateVisit);
 app.post('/api/visits', visitCtrl.createVisit);
 app.delete('/api/visits/:id', visitCtrl.deleteVisit);
@@ -57,11 +58,11 @@ app.post('/api/visitees', visiteeCtrl.createVisitee);
 app.delete('/api/visitees/:id', visiteeCtrl.deleteVisitee);
 
 // MESSAGES
-app.get('/api/messages', messageCtrl.getMessages);
-app.get('/api/messages/:id', messageCtrl.getMessageById);
-app.put('/api/messages/:id', messageCtrl.updateMessage);
-app.post('/api/messages', messageCtrl.createMessage);
-app.delete('/api/messages/:id', messageCtrl.deleteMessage);
+// app.get('/api/messages', messageCtrl.getMessages);
+// app.get('/api/messages/:id', messageCtrl.getMessageById);
+// app.put('/api/messages/:id', messageCtrl.updateMessage);
+// app.post('/api/messages', messageCtrl.createMessage);
+// app.delete('/api/messages/:id', messageCtrl.deleteMessage);
 
 //TEAMS
 app.get('/api/teams', teamCtrl.getTeams);
@@ -71,11 +72,11 @@ app.post('/api/teams', teamCtrl.createTeam);
 app.delete('/api/teams/:id', teamCtrl.deleteTeam);
 
 //AVAILABILITY
-app.get('/api/availability', availabilityCtrl.getAvailability);
-app.get('/api/availability/:id', availabilityCtrl.getAvailabilityById);
-app.put('/api/availability/:id', availabilityCtrl.updateAvailability);
-app.post('/api/availability', availabilityCtrl.createAvailability);
-app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
+// app.get('/api/availability', availabilityCtrl.getAvailability);
+// app.get('/api/availability/:id', availabilityCtrl.getAvailabilityById);
+// app.put('/api/availability/:id', availabilityCtrl.updateAvailability);
+// app.post('/api/availability', availabilityCtrl.createAvailability);
+// app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
 
 // REGISTER
 app.post('/api/register', registerCtrl.register);
