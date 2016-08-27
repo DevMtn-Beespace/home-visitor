@@ -12,46 +12,39 @@
 
 <section class="myVisits">
 
-  <div class="collapse in" id="myVisitCollapse">
-    <div class="card card-block">
-        <div class="text-xs-right">
-            <label><strong>Search Visits:</strong></label>
-            <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
-        </div>
-        <!-- <h3 class="card-header">My Visits</h3> -->
-        <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
+    <div class="collapse in" id="myVisitCollapse">
+        <div class="card card-block">
+            <div class="text-xs-right">
+                <label><strong>Search Visits:</strong></label>
+                <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
+            </div>
+            <!-- <h3 class="card-header">My Visits</h3> -->
+            <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
 
-            <div class="card-block">
-                <ul class="list-unstyled">
-                    <li>
-                      <h4 class="card-title">{{visit.visitee_fullname}}</h4>
-                      <p class="card-text">
-                          <h5>{{visit.visit_date | date:"MMM d, y 'at' h:mma"}}</h5>
-                          <br>
-                          <p><strong>contacted:</strong>&nbsp;{{visit.contacted | date:"MMM d, y 'at' h:mma"}}</p>
-                          <p><strong>confirmed:</strong>&nbsp;{{visit.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
-                          <br>
-                          <p>
-                              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
-                                  Visitors
-                              </button>
-                              <button class="btn btn-success pull-xs-right" type="button" ng-click="editVisitModal(visit)">
-                                  Edit Visit
-                              </button>
-                          </p>
-                      </p>
-                      <div class="collapse" id="{{visit.id}}Collapse">
-                          <div class="card card-block">
-                              <ul>
-                                  <li ng-repeat="visitor in visitors"><small>{{name}}</small></li>
-                              </ul>
-                          </div>
-                      </div>
-                    </li>
-                </ul>
+                <div class="card-block">
+                    <ul class="list-unstyled">
+                        <li>
+                            <h4 class="card-title">{{visit.visitee_fullname}}</h4>
+                            <p class="card-text">
+                                <h5>{{visit.visit_date | date:"MMM d, y 'at' h:mma"}}</h5>
+                                <br>
+                                <p><strong>contacted:</strong>&nbsp;{{visit.contacted | date:"MMM d, y 'at' h:mma"}}</p>
+                                <p><strong>confirmed:</strong>&nbsp;{{visit.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
+                                <br>
+                                <p>
+                                  <button class="btn btn-success" type="button" ng-click="editVisitModal(visit)">
+                                        Edit Visit
+                                  </button>
+                                  <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visit)">
+                                        Delete Visit
+                                  </button>
+                                </p>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 
 </section>

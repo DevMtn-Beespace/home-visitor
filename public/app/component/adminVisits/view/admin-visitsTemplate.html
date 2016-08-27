@@ -35,21 +35,14 @@
                           <p><strong>confirmed:</strong>&nbsp;{{visit.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
                           <br>
                             <p>
-                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visit.id}}Collapse" aria-expanded="false" aria-controls="{{visit.id}}Collapse">
-                                    Visitors
-                                </button>
-                                <button class="btn btn-success pull-xs-right" ng-click="editVisitModal(visit)">
+                              <button class="btn btn-success" type="button" ng-click="editVisitModal(visit)">
                                     Edit Visit
-                                </button>
+                              </button>
+                              <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visit)">
+                                    Delete Visit
+                              </button>
                             </p>
                         </p>
-                        <div class="collapse" id="{{visit.id}}Collapse">
-                            <div class="card card-block">
-                                <ul>
-                                    <li ng-repeat="visitor in visitors"><small>{{name}}</small></li>
-                                </ul>
-                            </div>
-                        </div>
                       </li>
                   </ul>
               </div>
@@ -76,21 +69,14 @@
                             <p><strong>contacted:</strong>&nbsp;{{visitAll.contacted | date:"MMM d, y 'at' h:mma"}}</p>
                             <p><strong>confirmed:</strong>&nbsp;{{visitAll.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
                             <br>
-                              <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visitAll.id}}Collapse" aria-expanded="false" aria-controls="{{visitAll.id}}Collapse">
-                                  Visitors
-                              </button>
-                                <button class="btn btn-success pull-xs-right" ng-click="editVisitModal(visit)">
+                            <button class="btn btn-success" type="button" ng-click="editVisitModal(visit)">
                                   Edit Visit
-                                </button>
+                            </button>
+                            <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visit)">
+                                  Delete Visit
+                            </button>
                             </p>
                         </p>
-                        <div class="collapse" id="{{visitAll.id}}Collapse">
-                            <div class="card card-block">
-                                <ul>
-                                    <li ng-repeat="visitor in visitors"><small>{{name}}</small></li>
-                                </ul>
-                            </div>
-                        </div>
                       </li>
                   </ul>
               </div>
