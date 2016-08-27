@@ -1,0 +1,29 @@
+<div class="card card-block card-outline-primary">
+    <h3 class="card-header bg-inverse" style="color:white">Set Availability</h3>
+    <div class="container">
+      <form>
+          <fieldset class="form-group">
+              <div class="row">
+                  <div class="col-xs-12">
+                      <label for="begin-input">Start Date (time optional)</label>
+                      <input class="form-control" type="datetime-local" ng-model="availability.available_start" id="begin-input">
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12">
+                      <label for="end-input">End Date (time optional)</label>
+                      <input class="form-control" type="datetime-local" ng-model="availability.available_end" id="end-input">
+                  </div>
+              </div>
+          </fieldset>
+          <div class="row">
+              <div class="col-xs-12">
+                  <button class="btn btn-success" ng-click="setAvail(availability)">Submit</button>
+                  <button class="btn btn-primary pull-xs-right" type="button" ng-click="closeModal()">
+                      Close
+                  </button>
+              </div>
+          </div>
+      </form>
+    </div>
+</div>

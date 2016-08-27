@@ -1,1 +1,1 @@
-SELECT * from availability where id = $1;
+SELECT * from availability where avail_id = $1;

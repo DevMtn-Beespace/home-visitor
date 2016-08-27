@@ -18,6 +18,19 @@ module.exports = {
           res.json(response);
       });
   },
+  getAvailabilityByUserId: function(req, res, next) {
+    console.log("GET AVAILABILITY By USER ID sighting");
+    db.availability.get_availability_by_user_id(req.params.id, function(err, response) {
+            if (err) {
+                console.log(err);
+                console.log('Invalid ID', req.params.id);
+                res.send(err);
+            } else {
+                console.log('success');
+                res.send(response)
+            }
+        });
+  },
   getAvailabilityById: function(req, res, next) {
     console.log("GET AVAILABILITY By ID sighting");
     db.availability.get_availability_by_id(req.params.id, function(err, response) {
@@ -35,11 +48,8 @@ module.exports = {
       if (req.params.id) {
         db.availability.update_availability(
           req.params.id,
-          req.body.user_id,
           req.body.available_start,
           req.body.available_end,
-          req.body.unavailable_start,
-          req.body.unavailable_end,
           function(err, response) {
             console.log("UPDATE AVAILABILITY sighting");
             console.log(err);

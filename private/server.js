@@ -72,11 +72,12 @@ app.post('/api/teams', teamCtrl.createTeam);
 app.delete('/api/teams/:id', teamCtrl.deleteTeam);
 
 //AVAILABILITY
-// app.get('/api/availability', availabilityCtrl.getAvailability);
-// app.get('/api/availability/:id', availabilityCtrl.getAvailabilityById);
-// app.put('/api/availability/:id', availabilityCtrl.updateAvailability);
-// app.post('/api/availability', availabilityCtrl.createAvailability);
-// app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
+app.get('/api/availability', availabilityCtrl.getAvailability);
+app.get('/api/availability/:id', availabilityCtrl.getAvailabilityById);
+app.get('/api/availability/user/:id', availabilityCtrl.getAvailabilityByUserId);
+app.put('/api/availability/:id', availabilityCtrl.updateAvailability);
+app.post('/api/availability', availabilityCtrl.createAvailability);
+app.delete('/api/availability/:id', availabilityCtrl.deleteAvailability);
 
 // REGISTER
 app.post('/api/register', registerCtrl.register);

@@ -1,11 +1,21 @@
 angular.module('app')
-.service('myAvailabilitySvc', function($http){
-  this.getMyAvailability = function(){
-    // need logic to get only the current user's teams
+    .service('myAvailabilitySvc', function($http) {
 
-    return $http({
-      method: 'GET',
-      url: 'http://localhost:3000/api/availability'
-    })
-  }
-});
+        this.getMyAvailability = function(userId) {
+            return $http({
+                method: 'GET',
+                url: 'http://localhost:3000/api/availability/user/' + userId
+            })
+        }
+
+        this.setAvailability = function(availability) {
+          console.log(availability);
+          return $http({
+            method: 'PUT',
+            url: 'http://localhost:3000/api/availability/' + availability.user_id,
+            data: availability
+          })
+        }
+
+
+    });
