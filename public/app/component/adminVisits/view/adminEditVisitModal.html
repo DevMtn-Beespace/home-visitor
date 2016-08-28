@@ -3,36 +3,36 @@
     <div class="container">
         <form>
             <div class="form-group">
-              <br>{{visit.visit_date | date:"MM/dd/y"}}
+                <br>{{visit.visit_date | date:"MM/dd/y"}}
                 <div class="row">
                     <div class="col-xs-12">
                         <h4>{{visit.visitee_fullname}}</h4>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-4">
-                        <label for="date-input">Date</label>
-                        <input class="form-control" type="date" ng-model="visit.visit_date" placeholder="{{visit.visit_date | date:"MM/dd/y"}}" value="{{visit.visit_date | date:"MM/dd/y"}}" id="date-input">
-                    </div>
-                    <div class="col-sm-4">
-                        <label for="time-input">Time</label>
-                        <input class="form-control" type="time" ng-model="visit.visit_time" placeholder="" value="{{visit.visit_time | date:"h:mma"}}" id="time-input">
-                    </div>
-                    <div class="col-sm-4">
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="checkbox" ng-model="visit.impromptu"><small>Impromptu (unscheduled)</small></label>
-                        </div>
+                    <div class="col-xs-12">
+                        <label for="date-input">Date and Time</label>
+                        <input class="form-control" type="datetime-local" ng-model="visit.visit_date" placeholder="{{visit.visit_date | date:" MM/dd/y "}}" value="{{visit.visit_date | date:" MM/dd/y "}}" id="date-input">
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <label for="contacted-input">Contacted</label>
-                        <input class="form-control" type="date" ng-model="visit.contacted" value="{{visit.visit_date | date:"MM/dd/y"}}" id="contacted-input">
+                <div class="col-xs-12">
+                    <div class="form-check-inline">
+                        <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" ng-checked="{{visit.impromptu}}" ng-model="visit.impromptu"><small>Impromptu (unscheduled)</small></label>
                     </div>
-                    <div class="col-sm-6">
+                </div>
+              </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <label for="contacted-input">Contacted</label>
+                        <input class="form-control" type="datetime-local" ng-model="visit.contacted" value="{{visit.visit_date | date:" MM/dd/y "}}" id="contacted-input">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
                         <label for="confirmed-input">Confirmed</label>
-                        <input class="form-control" type="date" ng-model="visit.confirmed" value="{{visit.visit_date | date:"MM/dd/y"}}" id="confirmed-input">
+                        <input class="form-control" type="datetime-local" ng-model="visit.confirmed" value="{{visit.visit_date | date:" MM/dd/y "}}" id="confirmed-input">
                     </div>
                 </div>
 

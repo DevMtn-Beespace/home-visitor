@@ -4,7 +4,6 @@ INSERT into VISITS
   visitee_fullname,
   visitor_id,
   visit_date,
-  visit_time,
   contacted,
   confirmed,
   impromptu
@@ -17,6 +16,5 @@ VALUES
   $4,
   $5,
   $6,
-  $7,
-  $8
+  $7
 );

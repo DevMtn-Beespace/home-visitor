@@ -16,7 +16,6 @@ module.exports = {
           visitee_fullname,
           req.body.userId,
           req.body.visit_date,
-          req.body.visit_time,
           req.body.contacted,
           req.body.confirmed,
           req.body.impromptu
