@@ -15,11 +15,11 @@
 
 <section class="adminTeam">
 
-    <div class="collapse in" id="allTeamsCollapse">
+    <div class="collapse" id="allTeamsCollapse">
         <div class="card card-block">
             <div class="text-xs-right">
                 <label><strong>Search Teams:</strong></label>
-                <input type="text" class="bg-primary" placeholder="type search term here" ng-model="teamText" />
+                <input type="text" placeholder="type search term here" ng-model="teamText" />
             </div>
             <h3 class="card-header">All Teams</h3>
             <div class="card card-outline-primary" ng-repeat="team in teams | filter:teamText | orderBy:'team.team_leader'">
@@ -56,3 +56,5 @@
     </div>
 
 </section>
+
+<div id="adminTeams"></div>

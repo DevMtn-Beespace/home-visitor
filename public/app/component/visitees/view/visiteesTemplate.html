@@ -16,7 +16,7 @@
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visitees:</strong></label>
-              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="userTeamText" />
+              <input type="text" placeholder="type search term here" ng-model="userTeamText" />
           </div>
           <h3 class="card-header">All Visitees</h3>
           <div class="card card-outline-primary" ng-repeat="user in users | filter:userText | orderBy:'user.last_name'">
@@ -61,11 +61,11 @@
 
   </div>
 
-  <div class="collapse in" id="teamVisiteesCollapse">
+  <div class="collapse" id="teamVisiteesCollapse">
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visitees:</strong></label>
-              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="userTeamText" />
+              <input type="text" placeholder="type search term here" ng-model="userTeamText" />
           </div>
           <h3 class="card-header">My Team's Visitees</h3>
           <div class="card card-outline-primary" ng-repeat="userTeam in userTeams | filter:userTeamText | orderBy:'userTeam.last_name'">
@@ -111,3 +111,5 @@
   </div>
 
 </section>
+
+<div id="visitees"></div>

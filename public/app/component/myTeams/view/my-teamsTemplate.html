@@ -1,32 +1,49 @@
 <nav-directive></nav-directive>
 <h1 class="text-xs-center">My Teams</h1>
 
+<p class="text-xs-center">
+    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#myTeamsCollapse" aria-expanded="false" aria-controls="myAvailabilityCollapse">
+        My Teams
+    </button>
+    <button class="btn btn-primary" type="button" ng-click="addTeamModal()">
+        Join Team
+    </button>
+</p>
 
-<div class="card card-block">
-    <div class="card card-outline-primary" ng-repeat="team in teams">
-        <div class="card-block">
-            <ul class="list-unstyled">
-                <li>
-                    <h4 class="card-title">{{team.team_name}}</h4>
-                    <p class="card-text">
-                        <h5>Team Leader: {{team.team_leader}}</h5>
-                        <h5>Team Second: {{team.team_second}}</h5><br>
-                        <!-- <p>Next Visit: date as link here</p> -->
-                        <p>
-                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.team_id}}Collapse" aria-expanded="false" aria-controls="{{team.team_id}}Collapse">
-                                Members
-                            </button>
-                        </p>
-                    </p>
-                    <div class="collapse" id="{{team.team_id}}Collapse">
-                        <div class="card card-block">
-                            <ul>
-                                <li ng-repeat="name in members"><small>{{name}}</small></li>
-                            </ul>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+<section class="myTeams">
+
+    <div class="collapse" id="myTeamsCollapse">
+
+        <div class="card card-block">
+            <div class="card card-outline-primary" ng-repeat="team in teams">
+                <div class="card-block">
+                    <ul class="list-unstyled">
+                        <li>
+                            <h4 class="card-title">{{team.team_name}}</h4>
+                            <p class="card-text">
+                                <h5>Team Leader: {{team.team_leader}}</h5>
+                                <h5>Team Second: {{team.team_second}}</h5><br>
+                                <!-- <p>Next Visit: date as link here</p> -->
+                                <p>
+                                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.team_id}}Collapse" aria-expanded="false" aria-controls="{{team.team_id}}Collapse">
+                                  Members
+                              </button>
+                                </p>
+                            </p>
+                            <div class="collapse" id="{{team.team_id}}Collapse">
+                                <div class="card card-block">
+                                    <ul>
+                                        <li ng-repeat="name in members"><small>{{name}}</small></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+
+</section>
+
+<div id="myTeamsImage"></div>

@@ -1,8 +1,125 @@
+@import 'https://fonts.googleapis.com/css?family=Cabin|Short+Stack';
+
+H1, H2, H3, H4 {
+  font-family: 'Short Stack', regular;
+}
+
+H1 {
+  color: white;
+}
+
+body {
+  font-family: 'Cabin', sans-serif;
+  background-color: darkorchid;
+}
+
+.navbar {
+  background-color: darkorchid;
+}
+
+#login-register-link {
+  color: whitesmoke;
+  visited: slategray;
+  hover: slategray;
+}
+
+.card-block {
+  background-color: whitesmoke;
+}
+
+.card-block li > small {
+  color: whitesmoke;
+}
+
+div.card {
+  background-color: darkorchid;
+}
+
 #welcomeImage {
   width: 100%;
-  height: 290px;
+  height: 55vh;
   background-image:url('../img/welcome-mat.jpg');
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center;
+}
+
+#myVisitsImage {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/myVisits-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#myAvailImage {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/myAvail-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#myTeamsImage {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/myTeams-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#myInfoImage {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/myInfo-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#visitees {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/visitees-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#adminUsers {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/adminUsers-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#adminVisits {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/adminVisits-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
+}
+
+#adminTeams {
+  width: 100%;
+  height: 55vh;
+  background-image:url('../img/adminTeams-min.jpg');
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+
 }

@@ -13,11 +13,11 @@
 
 <section class="adminUsers">
 
-    <div class="collapse in" id="allUsersCollapse">
+    <div class="collapse" id="allUsersCollapse">
         <div class="card card-block">
             <div class="text-xs-right">
                 <label><strong>Search Users:</strong></label>
-                <input type="text" class="bg-primary" placeholder="type search term here" ng-model="userText" />
+                <input type="text" placeholder="type search term here" ng-model="userText" />
             </div>
             <h3 class="card-header">All Users</h3>
             <div class="card card-outline-primary" ng-repeat="user in users | filter:userText | orderBy:'user.last_name'">
@@ -62,3 +62,5 @@
     </div>
 
 </section>
+
+<div id="adminUsers"></div>

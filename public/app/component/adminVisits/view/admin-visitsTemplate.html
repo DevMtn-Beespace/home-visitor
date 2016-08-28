@@ -19,7 +19,7 @@
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visits:</strong></label>
-              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
+              <input type="text" placeholder="type search term here" ng-model="visitText" />
           </div>
           <h3 class="card-header">My Visits</h3>
           <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
@@ -50,11 +50,11 @@
       </div>
     </div>
 
-    <div class="collapse in" id="allVisitsCollapse">
+    <div class="collapse" id="allVisitsCollapse">
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visits:</strong></label>
-              <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitAllText" />
+              <input type="text" placeholder="type search term here" ng-model="visitAllText" />
           </div>
           <h3 class="card-header">All Visits</h3>
           <div class="card card-outline-primary" ng-repeat="visitAll in allVisits | filter:visitAllText | orderBy:''">
@@ -85,3 +85,5 @@
     </div>
 
 </section>
+
+<div id="adminVisits"></div>

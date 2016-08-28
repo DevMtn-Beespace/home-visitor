@@ -12,11 +12,11 @@
 
 <section class="myVisits">
 
-    <div class="collapse in" id="myVisitCollapse">
+    <div class="collapse" id="myVisitCollapse">
         <div class="card card-block">
             <div class="text-xs-right">
                 <label><strong>Search Visits:</strong></label>
-                <input type="text" class="bg-primary" placeholder="type search term here" ng-model="visitText" />
+                <input type="text" placeholder="type search term here" ng-model="visitText" />
             </div>
             <!-- <h3 class="card-header">My Visits</h3> -->
             <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
@@ -48,3 +48,5 @@
     </div>
 
 </section>
+
+<div id="myVisitsImage"></div>
