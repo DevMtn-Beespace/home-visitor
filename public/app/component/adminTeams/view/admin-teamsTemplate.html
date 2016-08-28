@@ -44,7 +44,7 @@
                             <div class="collapse" id="{{team.team_id}}adminCollapse">
                                 <div class="card card-block">
                                     <ul>
-                                        <li><small>{{team.members}}</small></li>
+                                        <li ng-repeat="name in members"><small>{{name}}</small></li>
                                     </ul>
                                 </div>
                             </div>

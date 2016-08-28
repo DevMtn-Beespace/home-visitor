@@ -18,7 +18,7 @@ angular.module('app')
         $scope.getAllTeams = function() {
             adminTeamSvc.getAllTeams().then(function(result) {
                 console.log(result);
-                $scope.teams = result.data;
+                // $scope.teams = result.data;
                 console.log("$scope.teams", $scope.teams);
                 // need logic to get team members
 
@@ -71,32 +71,27 @@ angular.module('app')
 
         };
 
-        // $scope.teams = [
-        //   {"id": 1,
-        //   "team_name": "First Team",
-        //   "team_leader": "Michael",
-        //   "team_second": "James"},
-        //
-        //   {"id": 2,
-        //     "team_name": "Second Team",
-        //   "team_leader": "Nancy",
-        //   "team_second": "BooBoo"},
-        //
-        //   {"id": 3,
-        //     "team_name": "Third Team",
-        //   "team_leader": "Almaz",
-        //   "team_second": "Diane"},
-        //
-        //   {"id": 4,
-        //     "team_name": "Fourth Team",
-        //   "team_leader": "Jackson",
-        //   "team_second": "Jane"},
-        //
-        //   {"id": 5,
-        //     "team_name": "Fifth Team",
-        //   "team_leader": "Azeb",
-        //   "team_second": "Karima"},
-        // ]
+        $scope.members = ["Will Do","Happy Gilmore","Jordan Keller","Basel Jones"];
+        // need logic to get team members
+
+        $scope.teams = [
+          {"team_id": 1,
+          "team_leader": "James Tichenor",
+          "team_second": "Sing Ha",
+          "team_name": "First Team",
+          },
+
+          {"team_id": 2,
+          "team_leader": "Will Doo",
+          "team_second": "Happy Gilmore",
+            "team_name": "Second Team"
+          },
+
+          {"team_id": 3,
+            "team_name": "Third Team",
+          "team_leader": "Almaz",
+          "team_second": "Diane"},
+        ];
 
 
     });

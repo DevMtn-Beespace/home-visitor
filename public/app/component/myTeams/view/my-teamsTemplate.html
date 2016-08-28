@@ -3,17 +3,15 @@
 
 
 <div class="card card-block">
-    <!-- <h3 class="card-header">My Teams</h3> -->
     <div class="card card-outline-primary" ng-repeat="team in teams">
-        <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
         <div class="card-block">
             <ul class="list-unstyled">
                 <li>
                     <h4 class="card-title">{{team.team_name}}</h4>
                     <p class="card-text">
                         <h5>Team Leader: {{team.team_leader}}</h5>
-                        <h5>Team Second: {{team.team_second}}</h5>
-                        <p>Next Visit: date as link here</p>
+                        <h5>Team Second: {{team.team_second}}</h5><br>
+                        <!-- <p>Next Visit: date as link here</p> -->
                         <p>
                             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{team.team_id}}Collapse" aria-expanded="false" aria-controls="{{team.team_id}}Collapse">
                                 Members
