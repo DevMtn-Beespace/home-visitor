@@ -28,6 +28,16 @@ angular.module('app')
     ngDialog.close();
   };
 
+  $scope.joinTeam = function(team) {
+    var newteam = {"team_id": 6,
+    "team_name": "Sixth Team",
+    "team_leader": "Jerry Johnson",
+    "team_second": "Mary Watson"}
+    $scope.teams.push(newteam);
+    ngDialog.close();
+
+  }
+
   $scope.members = ["James Tichenor","Sally Field","Michael Lecke", "Jordan Keller","Sing Ha","Joe Schmoe","Bally Cosino"];
   // need logic to get team members
 
