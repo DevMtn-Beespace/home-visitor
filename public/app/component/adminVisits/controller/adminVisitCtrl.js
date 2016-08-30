@@ -46,7 +46,7 @@ angular.module('app')
       $scope.visitees = r.data;
       for (var i = 0; i < $scope.visitees.length; i++) {
         $scope.visitees[i].fullName = ($scope.visitees[i].first_name + ' ' + $scope.visitees[i].last_name);
-        console.log("fullname", $scope.visitees[i].fullName);
+        // console.log("fullname", $scope.visitees[i].fullName);
       }
     })
   }

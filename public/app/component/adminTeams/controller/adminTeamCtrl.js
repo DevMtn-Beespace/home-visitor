@@ -11,6 +11,10 @@ angular.module('app')
             adminTeamSvc.getAllUsers().then(function(result) {
                 console.log(result);
                 $scope.users = result.data;
+                for (var i = 0; i < $scope.users.length; i++) {
+                  $scope.users[i].fullName = ($scope.users[i].first_name + ' ' + $scope.users[i].last_name);
+                  console.log("fullname", $scope.users[i].fullName);
+                }
             });
         };
         $scope.getAllUsers();
