@@ -69,10 +69,10 @@
                             <p><strong>contacted:</strong>&nbsp;{{visitAll.contacted | date:"MMM d, y 'at' h:mma"}}</p>
                             <p><strong>confirmed:</strong>&nbsp;{{visitAll.confirmed | date:"MMM d, y 'at' h:mma"}}</p>
                             <br>
-                            <button class="btn btn-success" type="button" ng-click="editVisitModal(visit)">
+                            <button class="btn btn-success" type="button" ng-click="editVisitModal(visitAll)">
                                   Edit Visit
                             </button>
-                            <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visit)">
+                            <button class="btn btn-danger pull-xs-right" ng-click="deleteVisit(visitAll)">
                                   Delete Visit
                             </button>
                             </p>

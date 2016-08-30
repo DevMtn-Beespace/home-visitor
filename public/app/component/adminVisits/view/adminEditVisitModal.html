@@ -3,10 +3,12 @@
     <div class="container">
         <form>
             <div class="form-group">
-                <br>{{visit.visit_date | date:"MM/dd/y"}}
                 <div class="row">
                     <div class="col-xs-12">
-                        <h4>{{visit.visitee_fullname}}</h4>
+                      <br><span class="white-heading">{{visit.visit_date | date:"fullDate"}}</span>
+                      <span class="white-heading pull-xs-right">{{visit.visit_date | date:"shortTime"}}</span>
+                      <br><br>
+                        <h4 class="white-heading">{{visit.visitee_fullname}}</h4>
                     </div>
                 </div>
                 <div class="row">

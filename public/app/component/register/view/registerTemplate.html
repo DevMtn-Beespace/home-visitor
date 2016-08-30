@@ -2,7 +2,7 @@
 <h1 class="text-xs-center">Register</h1>
 
 <div class="container">
-    <form>
+    <form name="userForm">
         <div class="row">
             <div class="col-xs-12 text-xs-left"><span><small>User Type (choose one or all): </small></span>
                 <div class="form-group">
@@ -24,7 +24,7 @@
                     </div> -->
                     <div class="form-check-inline">
                         <label class="form-check-label">
-                            <input class="form-check-input" ng-model="user.admin" type="checkbox" value="admin"><small>Admin</small></label>
+                            <input class="form-check-input" ng-model="user.admin" ng-checked="false" type="hidden" value="admin"></label>
                     </div>
                 </div>
             </div>
@@ -32,15 +32,15 @@
         <div class="row">
             <div class="col-xs-4">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="First" required="" ng-model="user.first_name">
+                <input type="text" class="form-control" placeholder="First" required ng-model="user.first_name">
             </div>
             <div class="col-xs-4">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last" required="" ng-model="user.last_name" />
+                <input type="text" class="form-control" placeholder="Last" required ng-model="user.last_name" />
             </div>
             <div class="col-xs-4">
                 <label>Phone</label>
-                <input type="text" class="form-control" placeholder="Phone" ng-model="user.phone" />
+                <input type="tel" class="form-control" placeholder="Phone" ng-model="user.phone" />
             </div>
         </div>
         <div class="row">
@@ -66,19 +66,19 @@
         <div class="row">
             <div class="col-xs-12">
                 <label>Email</label>
-                <input type="text" class="form-control" placeholder="Email" ng-model="user.email" />
+                <input name="email" type="email" class="form-control" required placeholder="Email" ng-class="{ 'has-error': userForm.email.$invalid }" ng-model="user.email" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label>Username (can be email)</label>
-                <input type="text" class="form-control" placeholder="Username" ng-model="user.username" />
+                <input type="text" class="form-control" required placeholder="Username" ng-model="user.username" />
             </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
                 <label>Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="user.password">
+                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="user.password">
             </div>
         </div>
         <br>

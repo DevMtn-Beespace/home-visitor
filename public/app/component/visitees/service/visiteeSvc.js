@@ -18,4 +18,21 @@ this.getTeamVisitees = function(){
 }
 // mark visitees availability?
 
+this.addVisit = function(data, userId){
+  data.userId = userId;
+  console.log("service", data);
+  return $http({
+    method: 'POST',
+    url: 'http://localhost:3000/api/visits',
+    data: data
+  });
+}
+
+this.getVisitees = function(){
+  return $http({
+    method: 'GET',
+    url: 'http://localhost:3000/api/visitees'
+  })
+}
+
 });

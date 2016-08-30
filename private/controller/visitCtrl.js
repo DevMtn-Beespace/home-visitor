@@ -5,11 +5,16 @@ var db = app.get('db');
 module.exports = {
   createVisit: function(req, res, next) {
     var visitee_fullname;
-    // get fullnamem from users table
+    // get fullname from users table
     console.log("req params id create visit", req.body.visitee_id);
     db.users.get_user_by_id(req.body.visitee_id, function(err, r){
       console.log("r", r);
-      visitee_fullname = (r[0].first_name + ' ' + r[0].last_name);
+      if (req.body.visitee_fullname === undefined) {
+        visitee_fullname = (r[0].first_name + ' ' + r[0].last_name);
+      } else {
+        var visitee_fullname = req.body.visitee_fullname;
+        req.body.visitee_id = req.body.user_id;
+      }
       console.log("fullname" ,visitee_fullname);
         db.visits.create_visit([
           req.body.visitee_id,

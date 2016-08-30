@@ -71,7 +71,8 @@ angular.module('app')
 
         };
 
-        $scope.members = ["Will Do","Happy Gilmore","Jordan Keller","Basel Jones"];
+        $scope.members = ["James Tichenor","Sing Ha","Ethel Keller","Jane Jones"];
+        // $scope.members2 = ["Will Doo","Happy Gilmore","Jordan Keller","Basel Jones"];
         // need logic to get team members
 
         $scope.teams = [

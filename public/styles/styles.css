@@ -4,7 +4,7 @@ H1, H2, H3, H4 {
   font-family: 'Short Stack', regular;
 }
 
-H1 {
+H1, .white-heading {
   color: white;
 }
 
@@ -35,9 +35,24 @@ div.card {
   background-color: darkorchid;
 }
 
+.card-header {
+  margin-top: .5rem;
+  border-radius: 1.25rem;
+  opacity: .75;
+}
+
+#myVisit-search-bar {
+  margin-bottom:.5rem;
+}
+
+label {
+  margin-bottom: 0;
+  margin-top: .25rem;
+}
+
 #welcomeImage {
   width: 100%;
-  height: 55vh;
+  height: 295px;;
   background-image:url('../img/welcome-mat.jpg');
   background-repeat:no-repeat;
   background-size:cover;

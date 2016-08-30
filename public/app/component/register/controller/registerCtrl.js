@@ -9,12 +9,16 @@ angular.module('app')
       }();
 
   $scope.register = function(user) {
-    registerSvc.register(user).then(function(result){
-      console.log(result);
-      $location.path('/login');
-    })
-    console.log("register event triggered", user);
-
+    if ($scope.userForm.$valid) {
+      registerSvc.register(user).then(function(result){
+        console.log(result);
+        alert('Registration Complete');
+        $location.path('/login');
+      })
+      console.log("register event triggered", user);
+    } else {
+      alert("There are invalid fields");
+    }
   };
 
 });

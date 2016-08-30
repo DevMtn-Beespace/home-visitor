@@ -64,7 +64,9 @@ angular.module('app')
 
   $scope.deleteUser = function(user) {
     adminUserSvc.deleteUser(user.user_id).then(function(r){
-      $scope.getAllUsers();
+      // $scope.getAllUsers();
+      ngDialog.close();
+      $state.reload();
     })
   };
 

@@ -20,8 +20,11 @@ angular.module('app')
                 console.log("getting my info", r);
                 window.localStorage.setItem('user', JSON.stringify(r.data[0]));
                 $scope.user = JSON.parse(window.localStorage.getItem("user"));
+                $scope.user.password = "";
             });
         };
+
+        $scope.getMyInfo($scope.user.user_id);
 
         $scope.editUserModal = function(user) {
           $scope.user = user;

@@ -7,9 +7,11 @@ angular.module('app')
             }
         }();
 
+        $scope.user = JSON.parse(window.localStorage.getItem('user'));
+
         $scope.getAllVisitees = function() {
             visiteeSvc.getAllVisitees().then(function(result) {
-                console.log(result);
+                console.log("all visitees", result);
                 $scope.users = result.data;
             });
         };
@@ -18,7 +20,7 @@ angular.module('app')
 
         $scope.getTeamVisitees = function() {
             visiteeSvc.getTeamVisitees().then(function(result) {
-                console.log(result);
+                console.log("team visitees", result);
                 $scope.userTeams = result.data;
             });
         };
@@ -31,6 +33,32 @@ angular.module('app')
           console.log("add visit modal", visit);
 
         };
+
+        $scope.addVisit = function(visit) {
+          visit.visitee_fullname = (visit.first_name + ' ' + visit.last_name);
+          var userId = $scope.user.user_id;
+          console.log("userId", userId);
+          console.log("visit", visit);
+          visiteeSvc.addVisit(visit, userId).then(function(r){
+            console.log("response" ,r);
+            ngDialog.close();
+            $location.path('/my-visits');
+
+          })
+          console.log("add visit evet triggered", visit);
+        }
+
+        $scope.getVisitees = function() {
+          visiteeSvc.getVisitees().then(function(r){
+            $scope.visitees = r.data;
+            for (var i = 0; i < $scope.visitees.length; i++) {
+              $scope.visitees[i].fullName = ($scope.visitees[i].first_name + ' ' + $scope.visitees[i].last_name);
+              // console.log("fullname", $scope.visitees[i].fullName);
+            }
+          })
+        }
+
+        $scope.getVisitees();
 
         $scope.closeModal = function() {
           ngDialog.close();

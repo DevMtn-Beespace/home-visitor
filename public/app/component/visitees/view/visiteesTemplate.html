@@ -16,37 +16,37 @@
       <div class="card card-block">
           <div class="text-xs-right">
               <label><strong>Search Visitees:</strong></label>
-              <input type="text" placeholder="type search term here" ng-model="userTeamText" />
+              <input type="text" placeholder="type search term here" ng-model="visiteeText" />
           </div>
           <h3 class="card-header">All Visitees</h3>
-          <div class="card card-outline-primary" ng-repeat="user in users | filter:userText | orderBy:'user.last_name'">
+          <div class="card card-outline-primary" ng-repeat="visitee in visitees | filter:visiteeText | orderBy:'visitee.last_name'">
               <div class="card-block">
                   <ul class="list-unstyled">
                       <li>
-                          <span class="card-title"><h4>{{user.first_name}} {{user.last_name}}</h4><small>(username: {{user.username}})</small></span>
+                          <span class="card-title"><h4>{{visitee.first_name}} {{visitee.last_name}}</h4><small>(username: {{visitee.username}})</small></span>
                           <p class="card-text">
-                              <p>{{user.address}}
-                              <br>{{user.city}}, {{user.state}} {{user.zip}}
-                              <br><a href="http://maps.google.com/?q={{user.address}}%20{{user.city}}%20{{user.state}}%20{{user.zip}}" target="_blank"><small>Google map</small></a>
+                              <p>{{visitee.address}}
+                              <br>{{visitee.city}}, {{visitee.state}} {{visitee.zip}}
+                              <br><a href="http://maps.google.com/?q={{visitee.address}}%20{{visitee.city}}%20{{visitee.state}}%20{{visitee.zip}}" target="_blank"><small>Google map</small></a>
                               </p>
-                              <p>Phone: <a href="tel:{{user.phone}}">{{user.phone}}</a>
-                                <br>Email: <a href="mailto:{{user.email}}">{{user.email}}</a>
+                              <p>Phone: <a href="tel:{{visitee.phone}}">{{visitee.phone}}</a>
+                                <br>Email: <a href="mailto:{{visitee.email}}">{{visitee.email}}</a>
                               </p>
 
                               <!-- <p>
-                                <span>Admin: {{user.admin}}</span><br>
-                                <span>Visitor: {{user.visitor}}</span><br>
-                                <span>Visitee: {{user.visitee}}</span><br>
+                                <span>Admin: {{visitee.admin}}</span><br>
+                                <span>Visitor: {{visitee.visitor}}</span><br>
+                                <span>Visitee: {{visitee.visitee}}</span><br>
                               <p> -->
-                                <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{user.id}}teamsCollapse" aria-expanded="false" aria-controls="{{user.id}}teamsCollapse">
+                                <!-- <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#{{visitee.id}}teamsCollapse" aria-expanded="false" aria-controls="{{visitee.id}}teamsCollapse">
                                     Visiting Teams
                                 </button> -->
-                                <button class="btn btn-success pull-xs-right" ng-click="addVisitModal(user)">
+                                <button class="btn btn-success pull-xs-right" ng-click="addVisitModal(visitee)">
                                     Add Visit
                                 </button>
                               </p>
                           <!-- </p>
-                          <div class="collapse" id="{{user.id}}adminCollapse">
+                          <div class="collapse" id="{{visitee.id}}adminCollapse">
                               <div class="card card-block">
                                   <ul>
                                       <li ng-repeat="team in teams"><small>{{team.team_name}}</small></li>

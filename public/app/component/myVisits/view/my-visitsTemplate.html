@@ -16,9 +16,8 @@
         <div class="card card-block">
             <div class="text-xs-right">
                 <label><strong>Search Visits:</strong></label>
-                <input type="text" placeholder="type search term here" ng-model="visitText" />
+                <input id="myVisit-search-bar" type="text" placeholder="type search term here" ng-model="visitText" />
             </div>
-            <!-- <h3 class="card-header">My Visits</h3> -->
             <div class="card card-outline-primary" ng-repeat="visit in visits | filter:visitText | orderBy:''">
 
                 <div class="card-block">
