@@ -1,0 +1,24 @@
+<div class="card card-block card-outline-primary">
+    <h3 class="card-header bg-inverse" style="color:white">Join Team<button class="btn btn-primary pull-xs-right" type="button" ng-click="closeModal()">Close</button></h3>
+    <div class="container">
+        <form>
+            <!-- <div class="row">
+                <div class="col-xs-12">
+                    <label>Team Name</label>
+                    <input type="text" class="form-control" placeholder="Team Name" ng-model="team.team_name" />
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>Team Name</label>
+                    <br>
+                    <select ng-options="team.team_id as team.team_name for team in join_teams" ng-model="team.team_name">
+                    <option value="">Choose Team</option>
+                  </select>
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-success" ng-click="joinTeam(team)">Submit</button>
+        </form>
+    </div>
+</div>
